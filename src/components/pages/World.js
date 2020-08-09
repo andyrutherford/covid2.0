@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Card from '../UI/Card';
+import Container from '../UI/Container';
 
 const World = () => {
   return (
-    <Card color='black' bg='lightgreen' width={1}>
+    <Container color='black' bg='lightgreen' width={1}>
       World
-    </Card>
+    </Container>
   );
 };
 

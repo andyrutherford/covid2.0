@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { color, space, layout } from 'styled-system';
 
-const Card = styled.div`
+const Container = styled.div`
+  padding: 50px;
   ${color}
   ${space}
   ${layout}
 `;
 
-export default Card;
+export default Container;

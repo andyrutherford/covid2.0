@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Card from '../UI/Card';
+import Container from '../UI/Container';
 
 const Map = () => {
   return (
-    <Card color='black' bg='violet' width={1}>
-      Blue Card
-    </Card>
+    <Container color='black' bg='violet' width={1}>
+      Blue Container
+    </Container>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import theme from './styles/theme';
 
 import './App.css';
+import Theme from './styles/Theme';
 import Navbar from './components/Navbar';
 import Overview from './components/pages/Overview';
 import World from './components/pages/World';
@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <Theme>
       <Router>
         <Container>
           <Navbar />
@@ -28,7 +28,7 @@ const App = () => {
           </Switch>
         </Container>
       </Router>
-    </ThemeProvider>
+    </Theme>
   );
 };
 

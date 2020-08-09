@@ -1,4 +1,7 @@
-export default {
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+
+const theme = {
   colors: {
     black: '#000e1a',
     white: '#fff',
@@ -6,3 +9,9 @@ export default {
     navy: '#004175',
   },
 };
+
+const Theme = ({ children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
+
+export default Theme;
