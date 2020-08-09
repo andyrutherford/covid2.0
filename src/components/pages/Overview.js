@@ -2,6 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Container from '../UI/Container';
+import Card from '../UI/Card';
+
+import Total from '../Total';
+
+import virus from '../../assets/virus.svg';
+import death from '../../assets/death.svg';
+import heart from '../../assets/heart.svg';
+
+const data = {
+  cases: {
+    type: 'cases',
+    title: 'Total Worldwide Cases',
+    total: 48284029,
+    color: '#3b5892',
+  },
+  deaths: {
+    type: 'deaths',
+    title: 'Total Worldwide Deaths',
+    total: 1275028,
+    color: 'darkred',
+  },
+  recovered: {
+    type: 'recovered',
+    title: 'Total Worldwide Recovered',
+    total: 482740,
+    color: 'darkgreen',
+  },
+};
 
 const Button = styled.button`
   font-size: 1em;
@@ -16,13 +44,17 @@ const OverviewWrapper = styled.section`
   display: flex;
 
   .col-1 {
-    border: 1px dashed green;
-    width: 75%;
+    width: 80%;
+  }
+
+  .total-cards {
+    display: flex;
+    justify-content: space-between;
   }
 
   .col-2 {
     border: 1px dashed blue;
-    width: 25%;
+    width: 20%;
   }
 `;
 const Overview = () => {
@@ -30,7 +62,13 @@ const Overview = () => {
     <Container width={1} bg='lightgrey'>
       <h1>Overview</h1>
       <OverviewWrapper>
-        <div className='col-1'>1</div>
+        <div className='col-1'>
+          <div className='total-cards'>
+            <Total type='cases' data={data.cases} icon={virus} />
+            <Total type='deaths' data={data.deaths} icon={death} />
+            <Total type='recovered' data={data.recovered} icon={heart} />
+          </div>
+        </div>
         <div className='col-2'>2</div>
       </OverviewWrapper>
       <Button>Click</Button>
