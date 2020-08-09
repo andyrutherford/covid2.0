@@ -5,9 +5,8 @@ const Card = styled.div`
   padding: 15px 10px;
   border: 1px solid black;
   border-radius: 10px;
-  width: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
+  flex: 1;
   ${color}
   ${space}
   ${layout}

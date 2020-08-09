@@ -5,6 +5,7 @@ import Container from '../UI/Container';
 import Card from '../UI/Card';
 
 import Total from '../Total';
+import OverviewMap from '../OverviewMap';
 
 import virus from '../../assets/virus.svg';
 import death from '../../assets/death.svg';
@@ -56,6 +57,12 @@ const OverviewWrapper = styled.section`
     border: 1px dashed blue;
     width: 20%;
   }
+
+  @media (max-width: 1000px) {
+    .total-cards {
+      display: block;
+    }
+  }
 `;
 const Overview = () => {
   return (
@@ -68,6 +75,7 @@ const Overview = () => {
             <Total type='deaths' data={data.deaths} icon={death} />
             <Total type='recovered' data={data.recovered} icon={heart} />
           </div>
+          <OverviewMap />
         </div>
         <div className='col-2'>2</div>
       </OverviewWrapper>
