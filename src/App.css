@@ -19,6 +19,7 @@ body {
 
 body * {
   transition: 0.2s;
+  font-family: 'Nunito', sans-serif;
 }
 
 h1,
@@ -28,6 +29,25 @@ h4,
 h5,
 h6 {
   font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+  font-size: 56px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
 }
 
 ul {

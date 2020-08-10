@@ -30,7 +30,7 @@ const Total = ({ type, icon, total, data: { title, color } }) => {
       <TotalWrapper type={type} color={color}>
         <div className='left'>
           <span>{title}</span>
-          <h2>{total}</h2>
+          <h2>{total.toLocaleString()}</h2>
         </div>
         <img src={icon} width='50px' alt='heart' />
       </TotalWrapper>

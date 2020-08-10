@@ -8,7 +8,31 @@ export const fetchSummary = async () => {
   try {
     const res = await axios.get(url.summary);
     console.log(res.data);
-    return res.data;
+    return {
+      confirmed: {
+        totalConfirmed: res.data.Global.TotalConfirmed,
+        newConfirmed: res.data.Global.NewConfirmed,
+      },
+      deaths: {
+        totalDeaths: res.data.Global.TotalDeaths,
+        newDeaths: res.data.Global.NewDeaths,
+        percentDeaths: +(
+          (res.data.Global.TotalDeaths / res.data.Global.TotalConfirmed) *
+          100
+        ).toFixed(2),
+        totalCases: res.data.Global.TotalConfirmed,
+      },
+      recovered: {
+        totalRecovered: res.data.Global.TotalRecovered,
+        newRecovered: res.data.Global.NewRecovered,
+        percentRecovered: +(
+          (res.data.Global.TotalRecovered / res.data.Global.TotalConfirmed) *
+          100
+        ).toFixed(2),
+        totalCases: res.data.Global.TotalConfirmed,
+      },
+      countries: res.data.Countries,
+    };
   } catch (error) {
     console.log(error.message);
   }

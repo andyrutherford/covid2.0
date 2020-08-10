@@ -52,7 +52,7 @@ const OverviewMap = ({ countryList }) => {
               return (
                 <li key={i}>
                   <span>{c.country}</span>
-                  <span>{c.confirmed}</span>
+                  <span>{c.confirmed.toLocaleString()}</span>
                 </li>
               );
             })}

@@ -11,7 +11,7 @@ const NavbarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 300px;
+  width: 250px;
   height: 100vh;
   padding: 30px;
   position: fixed;
@@ -46,7 +46,7 @@ const NavbarWrapper = styled.div`
   }
 
   .logo img {
-    width: 50px;
+    height: 55px;
   }
 
   .logo-text {
@@ -62,7 +62,7 @@ const Navbar = () => {
           <img src={logo} alt='covid' />
           <div className='logo-text'>
             <h1>COVID-19</h1>
-            <span>caption</span>
+            <span>Dashboard</span>
           </div>
         </div>
         <ul>

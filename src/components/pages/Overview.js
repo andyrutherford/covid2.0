@@ -40,7 +40,7 @@ const Button = styled.button`
   padding: 0.25em 1em;
   border-radius: 3px;
   /* Color the border and text with theme.main */
-  background-color: ${(props) => props.theme.colors.navy};
+  background-color: ${(props) => props.theme.colors.prim};
 `;
 
 const OverviewWrapper = styled.section`
@@ -57,6 +57,10 @@ const OverviewWrapper = styled.section`
 
   .col-2 {
     width: 20%;
+  }
+
+  .bottom {
+    display: flex;
   }
 
   @media (max-width: 1000px) {
@@ -84,19 +88,24 @@ const Overview = () => {
   const fetchData = async () => {
     try {
       const summary = await fetchSummary();
-      const affected = formatMostAffectedCountries(summary.Countries);
+      console.log(summary);
+      const affected = formatMostAffectedCountries(summary.countries);
       setOverviewData({
         ...overviewData,
-        totals: summary.Global,
+        confirmed: summary.confirmed,
+        deaths: summary.deaths,
+        recovered: summary.recovered,
         mostAffected: affected,
       });
 
       setLoading(false);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   useEffect(() => {
-    const data = fetchData();
+    fetchData();
     // eslint-disable-next-line
   }, []);
 
@@ -112,28 +121,30 @@ const Overview = () => {
               type='cases'
               data={data.cases}
               icon={virus}
-              total={overviewData.totals.TotalConfirmed}
+              total={overviewData.confirmed.totalConfirmed}
             />
             <Total
               type='deaths'
               data={data.deaths}
               icon={death}
-              total={overviewData.totals.TotalDeaths}
+              total={overviewData.deaths.totalDeaths}
             />
             <Total
               type='recovered'
               data={data.recovered}
               icon={heart}
-              total={overviewData.totals.TotalRecovered}
+              total={overviewData.recovered.totalRecovered}
             />
           </div>
           <OverviewMap countryList={overviewData.mostAffected} />
-          <Resources />
+          <div className='bottom'>
+            <Resources />
+            <Resources />
+          </div>
         </div>
         <div className='col-2'>
-          <RecoveredPercentage />
-          <DeathPercentage />
-          <DeathPercentage />
+          <RecoveredPercentage data={overviewData.recovered} />
+          <DeathPercentage data={overviewData.deaths} />
         </div>
       </OverviewWrapper>
       <Button>Click</Button>
