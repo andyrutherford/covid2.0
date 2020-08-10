@@ -1,33 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Container from '../UI/Container';
-import Card from '../UI/Card';
 
 import Total from '../Total';
 import OverviewMap from '../OverviewMap';
+import RecoveredPercentage from '../RecoveredPercentage';
+import DeathPercentage from '../DeathPercentage';
+import Resources from '../Resources';
 
 import virus from '../../assets/virus.svg';
 import death from '../../assets/death.svg';
 import heart from '../../assets/heart.svg';
 
+import { fetchSummary } from '../../utils/fetch';
+import { formatMostAffectedCountries } from '../../utils/formatData';
+
 const data = {
   cases: {
     type: 'cases',
     title: 'Total Worldwide Cases',
-    total: 48284029,
     color: '#3b5892',
   },
   deaths: {
     type: 'deaths',
     title: 'Total Worldwide Deaths',
-    total: 1275028,
     color: 'darkred',
   },
   recovered: {
     type: 'recovered',
     title: 'Total Worldwide Recovered',
-    total: 482740,
     color: 'darkgreen',
   },
 };
@@ -54,7 +56,6 @@ const OverviewWrapper = styled.section`
   }
 
   .col-2 {
-    border: 1px dashed blue;
     width: 20%;
   }
 
@@ -63,21 +64,77 @@ const OverviewWrapper = styled.section`
       display: block;
     }
   }
+
+  @media (max-width: 1400px) {
+    display: block;
+    .col-1 {
+      width: 100%;
+    }
+    .col-2 {
+      width: 100%;
+      display: flex;
+    }
+  }
 `;
+
 const Overview = () => {
+  const [overviewData, setOverviewData] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async () => {
+    try {
+      const summary = await fetchSummary();
+      const affected = formatMostAffectedCountries(summary.Countries);
+      setOverviewData({
+        ...overviewData,
+        totals: summary.Global,
+        mostAffected: affected,
+      });
+
+      setLoading(false);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    const data = fetchData();
+    // eslint-disable-next-line
+  }, []);
+
+  if (loading) return <h1>Loading...</h1>;
+
   return (
     <Container width={1} bg='lightgrey'>
       <h1>Overview</h1>
       <OverviewWrapper>
         <div className='col-1'>
           <div className='total-cards'>
-            <Total type='cases' data={data.cases} icon={virus} />
-            <Total type='deaths' data={data.deaths} icon={death} />
-            <Total type='recovered' data={data.recovered} icon={heart} />
+            <Total
+              type='cases'
+              data={data.cases}
+              icon={virus}
+              total={overviewData.totals.TotalConfirmed}
+            />
+            <Total
+              type='deaths'
+              data={data.deaths}
+              icon={death}
+              total={overviewData.totals.TotalDeaths}
+            />
+            <Total
+              type='recovered'
+              data={data.recovered}
+              icon={heart}
+              total={overviewData.totals.TotalRecovered}
+            />
           </div>
-          <OverviewMap />
+          <OverviewMap countryList={overviewData.mostAffected} />
+          <Resources />
         </div>
-        <div className='col-2'>2</div>
+        <div className='col-2'>
+          <RecoveredPercentage />
+          <DeathPercentage />
+          <DeathPercentage />
+        </div>
       </OverviewWrapper>
       <Button>Click</Button>
     </Container>

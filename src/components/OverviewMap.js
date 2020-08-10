@@ -6,7 +6,6 @@ import Card from '../components/UI/Card';
 
 const OverviewMapWrapper = styled.div`
   display: flex;
-
   padding: 5px;
 
   ul {
@@ -16,6 +15,9 @@ const OverviewMapWrapper = styled.div`
   li {
     border-top: 0.5px solid lightgrey;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .list {
@@ -25,27 +27,35 @@ const OverviewMapWrapper = styled.div`
 
   .map {
     display: block;
-    height: 400px;
+    height: 500px;
     width: 100%;
     background-color: darkgrey;
   }
+
+  @media (max-width: 1100px) {
+    display: block;
+
+    .list {
+      width: 100%;
+    }
+  }
 `;
 
-const OverviewMap = () => {
+const OverviewMap = ({ countryList }) => {
   return (
     <Card bg='white'>
       <OverviewMapWrapper>
         <div className='list'>
           <h2>Most Affected Countries</h2>
           <ul>
-            <li>111</li>
-            <li>222</li>
-            <li>333</li>
-            <li>444</li>
-            <li>555</li>
-            <li>666</li>
-            <li>777</li>
-            <li>888</li>
+            {countryList.map((c, i) => {
+              return (
+                <li key={i}>
+                  <span>{c.country}</span>
+                  <span>{c.confirmed}</span>
+                </li>
+              );
+            })}
           </ul>
           <Link to='/'>See more</Link>
         </div>
