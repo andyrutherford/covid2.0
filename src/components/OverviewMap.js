@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import Card from '../components/UI/Card';
 
+import Map from './Map';
+
 const OverviewMapWrapper = styled.div`
   display: flex;
   padding: 5px;
@@ -59,7 +61,9 @@ const OverviewMap = ({ countryList }) => {
           </ul>
           <Link to='/'>See more</Link>
         </div>
-        <div className='map'>map</div>{' '}
+        <div className='map'>
+          <Map />
+        </div>{' '}
       </OverviewMapWrapper>
     </Card>
   );
