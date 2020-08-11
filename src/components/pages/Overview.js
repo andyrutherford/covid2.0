@@ -8,6 +8,7 @@ import OverviewMap from '../OverviewMap';
 import RecoveredPercentage from '../RecoveredPercentage';
 import DeathPercentage from '../DeathPercentage';
 import Resources from '../Resources';
+import MostDeaths from '../MostDeaths';
 
 import virus from '../../assets/virus.svg';
 import death from '../../assets/death.svg';
@@ -91,7 +92,6 @@ const Overview = () => {
   const fetchData = async () => {
     try {
       const summary = await fetchSummary();
-      console.log(summary);
       const affected = formatMostAffectedCountries(summary.countries);
 
       // Get map data
@@ -120,7 +120,7 @@ const Overview = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <Container width={1} bg='lightgrey'>
+    <>
       <h1>Overview</h1>
       <OverviewWrapper>
         <div className='col-1'>
@@ -156,10 +156,11 @@ const Overview = () => {
         <div className='col-2'>
           <RecoveredPercentage data={overviewData.recovered} />
           <DeathPercentage data={overviewData.deaths} />
+          <MostDeaths countryList={overviewData.mostAffected} />
         </div>
       </OverviewWrapper>
       <Button>Click</Button>
-    </Container>
+    </>
   );
 };
 

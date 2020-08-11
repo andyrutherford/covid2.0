@@ -2,10 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Card from '../components/UI/Card';
+import PieChart from '../components/charts/PieChart';
 
 import { PercentIcon } from '../components/UI/Icons';
 
 const RecoveredPercentageWrapper = styled.div`
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   hr {
     border: 0.1px solid lightgrey;
     margin: 5px 0;
@@ -20,8 +25,8 @@ const RecoveredPercentageWrapper = styled.div`
     margin-left: 5px;
   }
   .graph {
-    height: 120px;
-    width: 120px;
+    height: 200px;
+    width: 200px;
     margin: auto;
     background-color: darkgrey;
   }
@@ -43,14 +48,20 @@ const RecoveredPercentageWrapper = styled.div`
 `;
 
 const RecoveredPercentage = ({ data }) => {
+  const chartData = [
+    ['', ''],
+    ['Recovered', data.totalRecovered],
+    ['Not Recovered', data.totalCases - data.totalRecovered],
+  ];
+
   return (
     <Card border='none'>
       <RecoveredPercentageWrapper>
         <div className='header'>
           <PercentIcon size={32} /> <h3>Recovered</h3>
         </div>
-        <div className='graph'>
-          <h2>{data.percentRecovered}%</h2>
+        <div>
+          <PieChart chartData={chartData} />
         </div>
         <div className='graph-info'>
           <div className='graph-info__left'>

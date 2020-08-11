@@ -2,10 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Card from '../components/UI/Card';
+import PieChart from '../components/charts/PieChart';
 
 import { PercentIcon } from '../components/UI/Icons';
 
 const DeathPercentageWrapper = styled.div`
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   hr {
     border: 0.1px solid lightgrey;
     margin: 5px 0;
@@ -43,14 +48,19 @@ const DeathPercentageWrapper = styled.div`
 `;
 
 const DeathPercentage = ({ data }) => {
+  const chartData = [
+    ['', ''],
+    ['Deaths', data.totalDeaths],
+    ['Cases', data.totalCases],
+  ];
   return (
     <Card border='none'>
       <DeathPercentageWrapper>
         <div className='header'>
           <PercentIcon size={32} /> <h3>Deaths</h3>
         </div>
-        <div className='graph'>
-          <h2>{data.percentDeaths}%</h2>
+        <div>
+          <PieChart chartData={chartData} />
         </div>
         <div className='graph-info'>
           <div className='graph-info__left'>

@@ -7,7 +7,6 @@ const url = {
 export const fetchSummary = async () => {
   try {
     const res = await axios.get(url.summary);
-    console.log(res.data);
     return {
       confirmed: {
         totalConfirmed: res.data.Global.TotalConfirmed,
