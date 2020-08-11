@@ -11,7 +11,7 @@ const data = [
   ['RU', 700],
 ];
 
-const Map = () => {
+const Map = ({ mapData }) => {
   return (
     <div>
       <Chart
@@ -30,10 +30,10 @@ const Map = () => {
         chartType='GeoChart'
         width='100%'
         height='100%'
-        data={data}
+        data={mapData}
         mapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
         rootProps={{ 'data-testid': '1' }}
-        options={{ colorAxis: { colors: ['#fff', '#3b5892'] } }}
+        options={{ colorAxis: { colors: ['#d9dcee', '#3b5892'] } }}
       />
     </div>
   );

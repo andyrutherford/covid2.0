@@ -14,7 +14,10 @@ import death from '../../assets/death.svg';
 import heart from '../../assets/heart.svg';
 
 import { fetchSummary } from '../../utils/fetch';
-import { formatMostAffectedCountries } from '../../utils/formatData';
+import {
+  formatMostAffectedCountries,
+  formatMapData,
+} from '../../utils/formatData';
 
 const data = {
   cases: {
@@ -90,12 +93,17 @@ const Overview = () => {
       const summary = await fetchSummary();
       console.log(summary);
       const affected = formatMostAffectedCountries(summary.countries);
+
+      // Get map data
+      const mapData = formatMapData(summary.countries);
+
       setOverviewData({
         ...overviewData,
         confirmed: summary.confirmed,
         deaths: summary.deaths,
         recovered: summary.recovered,
         mostAffected: affected,
+        map: mapData,
       });
 
       setLoading(false);
@@ -136,7 +144,10 @@ const Overview = () => {
               total={overviewData.recovered.totalRecovered}
             />
           </div>
-          <OverviewMap countryList={overviewData.mostAffected} />
+          <OverviewMap
+            countryList={overviewData.mostAffected}
+            mapData={overviewData.map}
+          />
           <div className='bottom'>
             <Resources />
             <Resources />
