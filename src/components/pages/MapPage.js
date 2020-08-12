@@ -14,7 +14,7 @@ const MapPage = () => {
   const fetchData = async () => {
     try {
       const summary = await fetchSummary();
-      const mapData = formatMapData(summary.countries);
+      const mapData = summary.countries;
       setMapState(mapData);
       setLoading(false);
     } catch (error) {

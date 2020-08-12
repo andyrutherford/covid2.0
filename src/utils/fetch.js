@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { formatCountryList } from './formatData';
+
 const url = {
   summary: 'https://api.covid19api.com/summary',
 };
@@ -30,7 +32,7 @@ export const fetchSummary = async () => {
         ).toFixed(2),
         totalCases: res.data.Global.TotalConfirmed,
       },
-      countries: res.data.Countries,
+      countries: formatCountryList(res.data.Countries),
     };
   } catch (error) {
     console.log(error.message);

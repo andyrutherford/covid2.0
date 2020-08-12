@@ -66,12 +66,12 @@ const RecoveredPercentage = ({ data }) => {
         <div className='graph-info'>
           <div className='graph-info__left'>
             <span>{+(data.totalRecovered / 1000000).toFixed(1) + 'M'}</span>
-            <span>Recovered</span>
+            <span className='subtext'>Recovered</span>
           </div>
           <hr />
           <div className='graph-info__right'>
             <span>{+(data.totalCases / 1000000).toFixed(1) + 'M'}</span>
-            <span>Cases</span>
+            <span className='subtext'>Cases</span>
           </div>
         </div>
       </RecoveredPercentageWrapper>

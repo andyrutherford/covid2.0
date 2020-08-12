@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Container from './components/UI/Container';
 
-import './App.css';
+import { default as GlobalStyle } from './styles/GlobalStyle';
+
 import Theme from './styles/Theme';
 import Navbar from './components/Navbar';
 import Overview from './components/pages/Overview';
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <Theme>
       <Router>
+        <GlobalStyle />
         <Wrapper>
           <Navbar />
           <Container color='black' bg='lightgrey' width={1}>

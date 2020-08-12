@@ -65,12 +65,12 @@ const DeathPercentage = ({ data }) => {
         <div className='graph-info'>
           <div className='graph-info__left'>
             <span>{+(data.totalDeaths / 1000).toFixed(1) + 'K'}</span>
-            <span>Deaths</span>
+            <span className='subtext'>Deaths</span>
           </div>
           <hr />
           <div className='graph-info__right'>
             <span>{+(data.totalCases / 1000000).toFixed(1) + 'M'}</span>
-            <span>Cases</span>
+            <span className='subtext'>Cases</span>
           </div>
         </div>
       </DeathPercentageWrapper>

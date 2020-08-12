@@ -92,17 +92,20 @@ const Overview = () => {
   const fetchData = async () => {
     try {
       const summary = await fetchSummary();
-      const affected = formatMostAffectedCountries(summary.countries);
-
-      // Get map data
+      console.log(summary);
+      const mostCases = formatMostAffectedCountries(summary.countries, 'cases');
+      const mostDeaths = formatMostAffectedCountries(
+        summary.countries,
+        'deaths'
+      );
       const mapData = formatMapData(summary.countries);
-
       setOverviewData({
         ...overviewData,
         confirmed: summary.confirmed,
         deaths: summary.deaths,
         recovered: summary.recovered,
-        mostAffected: affected,
+        mostCases,
+        mostDeaths,
         map: mapData,
       });
 
@@ -145,7 +148,7 @@ const Overview = () => {
             />
           </div>
           <OverviewMap
-            countryList={overviewData.mostAffected}
+            countryList={overviewData.mostCases}
             mapData={overviewData.map}
           />
           <div className='bottom'>
@@ -156,7 +159,7 @@ const Overview = () => {
         <div className='col-2'>
           <RecoveredPercentage data={overviewData.recovered} />
           <DeathPercentage data={overviewData.deaths} />
-          <MostDeaths countryList={overviewData.mostAffected} />
+          <MostDeaths countryList={overviewData.mostDeaths} />
         </div>
       </OverviewWrapper>
       <Button>Click</Button>

@@ -14,7 +14,6 @@ const TotalWrapper = styled.div`
     `}
 
   span {
-    color: grey;
     margin-bottom: 5px;
   }
 
@@ -29,7 +28,7 @@ const Total = ({ type, icon, total, data: { title, color } }) => {
     <Card bg='white' borderColor={color}>
       <TotalWrapper type={type} color={color}>
         <div className='left'>
-          <span>{title}</span>
+          <span className='subtext'>{title}</span>
           <h2>{total.toLocaleString()}</h2>
         </div>
         <img src={icon} width='50px' alt='heart' />
