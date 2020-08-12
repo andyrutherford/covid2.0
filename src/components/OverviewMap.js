@@ -30,7 +30,7 @@ const OverviewMapWrapper = styled.div`
   .map {
     display: block;
     height: 500px;
-    width: 100%;
+    width: 99%;
     background-color: darkgrey;
   }
 
@@ -62,7 +62,7 @@ const OverviewMap = ({ countryList, mapData }) => {
           <Link to='/'>See more</Link>
         </div>
         <div className='map'>
-          <Map mapData={mapData} />
+          <Map mapData={mapData} source='cases' />
         </div>{' '}
       </OverviewMapWrapper>
     </Card>

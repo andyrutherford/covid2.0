@@ -67,11 +67,20 @@ export const formatMostAffectedCountries = (countries, type) => {
   return arr.reverse().slice(0, 8);
 };
 
-export const formatMapData = (list) => {
-  let arr = list.map((c) => [c.Country, c.TotalConfirmed]);
+export const formatMapData = (list, type) => {
+  let arr;
+  arr = list.map((c) => [c.Country, c.TotalConfirmed]);
   arr.unshift(['Country', 'Confirmed Cases']);
 
-  console.log(arr);
+  if (type === 'deaths') {
+    arr = list.map((c) => [c.Country, c.TotalDeaths]);
+    arr.unshift(['Country', 'Total Deaths']);
+  }
+
+  if (type === 'recovered') {
+    arr = list.map((c) => [c.Country, c.TotalRecovered]);
+    arr.unshift(['Country', 'Total Recovered']);
+  }
 
   return arr;
 };

@@ -25,7 +25,17 @@ const Global = createGlobalStyle`
 	}
 	ul {
 		  list-style-type: none
-	}
+    }
+    .link {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: inherit;
+    }
+
+    .active {
+        border-bottom: 3px solid navy;
+    }
 	.subtext {
 		color: grey;
 	  }

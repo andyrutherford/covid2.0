@@ -11,7 +11,7 @@ const NavbarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 250px;
+  width: 200px;
   height: 100vh;
   padding: 30px;
   position: fixed;
