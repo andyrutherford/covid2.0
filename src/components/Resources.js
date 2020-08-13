@@ -34,7 +34,7 @@ const ResourcesWrapper = styled.div`
 
 const Resources = () => {
   return (
-    <Card>
+    <Card border='none'>
       <ResourcesWrapper>
         <div className='header'>
           <BookmarkIcon size={40} />

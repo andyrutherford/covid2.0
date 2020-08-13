@@ -1,18 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { Chart } from 'react-google-charts';
 
 import Card from '../components/UI/Card';
 
 const CountryListWrapper = styled.div`
-  .bold-green-font {
-    font-weight: bold;
-    color: green;
-    padding: 10px 0;
-    margin: 10px 0;
+  a {
+    color: #3b5892;
   }
-
   .bold-font {
     font-weight: bold;
     padding: 10px 0;
@@ -31,26 +28,12 @@ const CountryListWrapper = styled.div`
     margin: 10px 0;
   }
 
-  .italic-darkblue-font {
-    font-style: italic;
-    color: darkblue;
-    padding: 10px 0;
-    margin: 10px 0;
+  .table-row {
+    display: flex;
+    justify-content: space-between;
   }
-
-  .italic-purple-font {
-    font-style: italic;
-    color: purple;
-    padding: 10px 0;
-    margin: 10px 0;
-  }
-
   .cell {
     padding: 20px 0;
-  }
-
-  .gold-border {
-    border: 3px solid gold;
   }
 `;
 
@@ -77,11 +60,12 @@ const CountryList = ({ list }) => {
             ...list,
           ]}
           options={{
+            allowHtml: true,
             showRowNumber: true,
             cssClassNames: {
               headerRow: 'header-row',
               tableRow: '',
-              selectedTableRow: 'orange-background large-font',
+              selectedTableRow: 'large-font',
               hoverTableRow: '',
               headerCell: '',
               tableCell: '',

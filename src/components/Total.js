@@ -31,7 +31,7 @@ const Total = ({ type, icon, total, data: { title, color } }) => {
           <span className='subtext'>{title}</span>
           <h2>{total.toLocaleString()}</h2>
         </div>
-        <img src={icon} width='50px' alt='heart' />
+        <img src={icon} width='50px' alt='icon' />
       </TotalWrapper>
     </Card>
   );

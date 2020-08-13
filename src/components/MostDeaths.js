@@ -20,7 +20,7 @@ const MostDeathsWrapper = styled.div`
 
 const MostDeaths = ({ countryList }) => {
   return (
-    <Card bg='white'>
+    <Card bg='white' border='none'>
       <MostDeathsWrapper>
         <div>
           <h2>Most Deaths</h2>
@@ -34,7 +34,7 @@ const MostDeaths = ({ countryList }) => {
               );
             })}
           </ul>
-          <Link to='/'>See more</Link>
+          <Link to='/country'>See more</Link>
         </div>
       </MostDeathsWrapper>
     </Card>

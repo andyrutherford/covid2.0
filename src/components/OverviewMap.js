@@ -43,7 +43,7 @@ const OverviewMapWrapper = styled.div`
 
 const OverviewMap = ({ countryList, mapData }) => {
   return (
-    <Card bg='white'>
+    <Card bg='white' border='none'>
       <OverviewMapWrapper>
         <div className='list'>
           <h2>Most Cases</h2>
@@ -57,7 +57,7 @@ const OverviewMap = ({ countryList, mapData }) => {
               );
             })}
           </ul>
-          <Link to='/'>See more</Link>
+          <Link to='/country'>See more</Link>
         </div>
         <div className='map'>
           <Map mapData={mapData} source='cases' />

@@ -1,14 +1,10 @@
 export const formatCountryList = (list) => {
   const arr = list.map((c) => {
     switch (c.Country) {
-      case 'Congo (Brazzaville)':
-        return { ...c, Country: 'Democratic Republic of the Congo' };
-      case 'Congo (Kinshasa)':
-        return { ...c, Country: 'Democratic Republic of the Congo' };
       case 'Brunei Darussalam':
         return { ...c, Country: 'Brunei' };
       case 'Holy See (Vatican City State)':
-        return { ...c, Country: 'VA' };
+        return { ...c, Country: 'Vatican City' };
       case 'Iran, Islamic Republic of':
         return { ...c, Country: 'Iran' };
       case 'Korea (South)':
@@ -93,7 +89,7 @@ export const formatMapData = (list, type) => {
 
 export const formatTable = (list) => {
   return list.map((i) => [
-    i.Country,
+    `<a href="/country/${i.Slug}">${i.Country}</a>`,
     i.TotalConfirmed,
     i.TotalDeaths,
     i.TotalRecovered,
@@ -101,4 +97,11 @@ export const formatTable = (list) => {
     i.NewDeaths,
     i.NewRecovered,
   ]);
+};
+
+export const formatLineChartData = (list) => {
+  return list.map((i) => {
+    const date = i.Date.split('-').slice(1, 3).join('-').split('T')[0];
+    return [date, i.Cases];
+  });
 };

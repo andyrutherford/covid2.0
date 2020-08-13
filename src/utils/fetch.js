@@ -4,6 +4,7 @@ import { formatCountryList } from './formatData';
 
 const url = {
   summary: 'https://api.covid19api.com/summary',
+  countrySummary: 'https://api.covid19api.com/total/country/',
 };
 
 export const fetchSummary = async () => {
@@ -34,6 +35,18 @@ export const fetchSummary = async () => {
       },
       countries: formatCountryList(res.data.Countries),
     };
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const fetchCountrySummary = async (country) => {
+  try {
+    const res = await axios.get(
+      `${url.countrySummary}${country}/status/confirmed`
+    );
+    console.log(res.data);
+    return res.data;
   } catch (error) {
     console.log(error.message);
   }
