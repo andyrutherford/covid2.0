@@ -4,6 +4,7 @@ import { color, space, layout } from 'styled-system';
 const Container = styled.div`
 margin-left: 260px;
   padding: 50px;
+  height: 100vh;
   ${color}
   ${space}
   ${layout}

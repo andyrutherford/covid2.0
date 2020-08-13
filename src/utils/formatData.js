@@ -16,9 +16,9 @@ export const formatCountryList = (list) => {
       case 'Lao PDR':
         return { ...c, Country: 'Laos' };
       case 'Macedonia, Republic of':
-        return { ...c, Country: 'MK' };
+        return { ...c, Country: 'Macedonia' };
       case 'Republic of Kosovo':
-        return { ...c, Country: 'XK' };
+        return { ...c, Country: 'Kosovo' };
       case 'Russian Federation':
         return { ...c, Country: 'Russia' };
       case 'Saint Vincent and Grenadines':
@@ -33,8 +33,6 @@ export const formatCountryList = (list) => {
         return { ...c, Country: 'Taiwan' };
       case 'Tanzania, United Republic of':
         return { ...c, Country: 'Tanzania' };
-      case 'Timor-Leste':
-        return { ...c, Country: 'Timor Leste' };
       case 'United States of America':
         return { ...c, Country: 'United States' };
       case 'Venezuela (Bolivarian Republic)':
@@ -52,18 +50,26 @@ export const formatMostAffectedCountries = (countries, type) => {
   let arr;
   if (type === 'cases') {
     arr = countries
-      .map((c) => ({ country: c.Country, confirmed: c.TotalConfirmed }))
+      .map((c) => ({
+        country: c.Country,
+        countryCode: c.CountryCode,
+        confirmed: c.TotalConfirmed,
+      }))
       .sort(function (a, b) {
         return a.confirmed - b.confirmed;
       });
   } else if (type === 'deaths') {
     arr = countries
-      .map((c) => ({ country: c.Country, deaths: c.TotalDeaths }))
+      .map((c) => ({
+        country: c.Country,
+        countryCode: c.CountryCode,
+        deaths: c.TotalDeaths,
+      }))
       .sort(function (a, b) {
         return a.deaths - b.deaths;
       });
   }
-
+  console.log(arr);
   return arr.reverse().slice(0, 8);
 };
 
@@ -83,4 +89,16 @@ export const formatMapData = (list, type) => {
   }
 
   return arr;
+};
+
+export const formatTable = (list) => {
+  return list.map((i) => [
+    i.Country,
+    i.TotalConfirmed,
+    i.TotalDeaths,
+    i.TotalRecovered,
+    i.NewConfirmed,
+    i.NewDeaths,
+    i.NewRecovered,
+  ]);
 };

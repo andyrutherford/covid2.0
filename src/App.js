@@ -10,7 +10,7 @@ import Theme from './styles/Theme';
 import Navbar from './components/Navbar';
 import Overview from './components/pages/Overview';
 import World from './components/pages/World';
-import Country from './components/pages/Country';
+import CountryPage from './components/pages/CountryPage';
 import MapPage from './components/pages/MapPage';
 
 const Wrapper = styled.div`
@@ -28,7 +28,7 @@ const App = () => {
             <Switch>
               <Route path='/' exact component={Overview} />
               <Route path='/world' exact component={World} />
-              <Route path='/country' exact component={Country} />
+              <Route path='/country' exact component={CountryPage} />
               <Route path='/map' exact component={MapPage} />
             </Switch>
           </Container>

@@ -28,8 +28,6 @@ const OverviewMapWrapper = styled.div`
   }
 
   .map {
-    display: block;
-    height: 500px;
     width: 99%;
     background-color: darkgrey;
   }
