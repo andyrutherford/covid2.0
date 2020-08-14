@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
-import Card from '../UI/Card';
 import Total from '../Total';
+import CasesOverTime from '../CasesOverTime';
 
 import { fetchSummary, fetchCountrySummary } from '../../utils/fetch';
 import { formatLineChartData } from '../../utils/formatData';
@@ -22,17 +22,17 @@ const CountryPageWrapper = styled.div`
 const data = {
   cases: {
     type: 'cases',
-    title: 'Total Worldwide Cases',
+    title: 'Total Cases',
     color: '#3b5892',
   },
   deaths: {
     type: 'deaths',
-    title: 'Total Worldwide Deaths',
+    title: 'Total Deaths',
     color: 'darkred',
   },
   recovered: {
     type: 'recovered',
-    title: 'Total Worldwide Recovered',
+    title: 'Total Recovered',
     color: 'darkgreen',
   },
 };
@@ -40,7 +40,7 @@ const data = {
 const CountryPage = () => {
   const { country } = useParams();
   const [summary, setSummary] = useState();
-  const [history, setHistory] = useState();
+  const [casesOverTime, setCasesOverTime] = useState();
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
@@ -50,7 +50,7 @@ const CountryPage = () => {
       let countrySummary = await fetchCountrySummary(country);
       const chartData = formatLineChartData(countrySummary);
       setSummary({ ...res[0] });
-      setHistory(chartData);
+      setCasesOverTime(chartData);
       setLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -87,9 +87,7 @@ const CountryPage = () => {
           total={summary.TotalRecovered}
         />
       </div>
-      {/* <Total />
-      <Total />
-      <Total /> */}
+      <CasesOverTime data={casesOverTime} />
     </CountryPageWrapper>
   );
 };
