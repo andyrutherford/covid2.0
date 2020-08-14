@@ -133,18 +133,21 @@ const Overview = () => {
               data={data.cases}
               icon={virus}
               total={overviewData.confirmed.totalConfirmed}
+              recent={overviewData.confirmed.newConfirmed}
             />
             <Total
               type='deaths'
               data={data.deaths}
               icon={death}
               total={overviewData.deaths.totalDeaths}
+              recent={overviewData.deaths.newDeaths}
             />
             <Total
               type='recovered'
               data={data.recovered}
               icon={heart}
               total={overviewData.recovered.totalRecovered}
+              recent={overviewData.recovered.newRecovered}
             />
           </div>
           <OverviewMap

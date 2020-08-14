@@ -28,7 +28,9 @@ const MostDeaths = ({ countryList }) => {
             {countryList.map((c, i) => {
               return (
                 <li key={i}>
-                  <span>{c.country}</span>
+                  <span>
+                    <Link to={`/country/${c.slug}`}>{c.country}</Link>
+                  </span>
                   <span>{c.deaths.toLocaleString()}</span>
                 </li>
               );

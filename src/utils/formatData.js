@@ -48,6 +48,7 @@ export const formatMostAffectedCountries = (countries, type) => {
     arr = countries
       .map((c) => ({
         country: c.Country,
+        slug: c.Slug,
         countryCode: c.CountryCode,
         confirmed: c.TotalConfirmed,
       }))
@@ -58,6 +59,7 @@ export const formatMostAffectedCountries = (countries, type) => {
     arr = countries
       .map((c) => ({
         country: c.Country,
+        slug: c.Slug,
         countryCode: c.CountryCode,
         deaths: c.TotalDeaths,
       }))
