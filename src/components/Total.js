@@ -37,8 +37,9 @@ const Total = ({ type, icon, total, recent, data: { title, color } }) => {
           <span className='subtext'>{title}</span>
           <h2>{total.toLocaleString()}</h2>
           <span className='new'>
-            <PlusIcon size={20} stroke={color} /> {recent.toLocaleString()} New{' '}
-            {type[0].toUpperCase() + type.slice(1, type.length)}
+            <PlusIcon size={20} stroke={color} />{' '}
+            <span className='bold'>&nbsp;{recent.toLocaleString()}&nbsp;</span>{' '}
+            New {type[0].toUpperCase() + type.slice(1, type.length)}
           </span>
         </div>
         <img src={icon} width='50px' alt='icon' />

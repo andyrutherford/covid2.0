@@ -8,6 +8,8 @@ import { formatTable } from '../../utils/formatData';
 const CountriesPage = () => {
   const [countryListState, setCountryListState] = useState();
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+  const [searchList, setSearchList] = useState();
 
   const fetchData = async () => {
     try {
@@ -27,10 +29,26 @@ const CountriesPage = () => {
 
   if (loading) return <h1>Loading...</h1>;
 
+  const searchHandler = (e) => {
+    const val = e.target.value;
+    setSearchList(
+      countryListState.filter((c) =>
+        c[0].split('>')[1].toLowerCase().includes(val.toLowerCase())
+      )
+    );
+    setSearch(val);
+  };
+
   return (
     <div>
       <h1>Country</h1>
-      <CountryList list={countryListState} />
+      <input
+        type='text'
+        name='search'
+        onChange={searchHandler}
+        value={search}
+      />
+      <CountryList list={search.length > 0 ? searchList : countryListState} />
     </div>
   );
 };

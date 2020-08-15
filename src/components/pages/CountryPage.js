@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
+import Card from '../UI/Card';
 import Total from '../Total';
 import CasesOverTime from '../CasesOverTime';
+import SankeyChart from '../charts/SankeyChart';
 
 import { fetchSummary, fetchCountrySummary } from '../../utils/fetch';
 import { formatLineChartData } from '../../utils/formatData';
@@ -73,21 +75,29 @@ const CountryPage = () => {
           data={data.cases}
           icon={virus}
           total={summary.TotalConfirmed}
+          recent={summary.NewConfirmed}
         />
         <Total
           type='deaths'
           data={data.deaths}
           icon={death}
           total={summary.TotalDeaths}
+          recent={summary.NewDeaths}
         />
         <Total
           type='recovered'
           data={data.recovered}
           icon={heart}
           total={summary.TotalRecovered}
+          recent={summary.NewRecovered}
         />
       </div>
-      <CasesOverTime data={casesOverTime} />
+      <div style={{ display: 'flex' }}>
+        <Card>
+          <SankeyChart />
+        </Card>
+        <CasesOverTime data={casesOverTime} />
+      </div>
     </CountryPageWrapper>
   );
 };
