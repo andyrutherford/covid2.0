@@ -67,7 +67,6 @@ export const formatMostAffectedCountries = (countries, type) => {
         return a.deaths - b.deaths;
       });
   }
-  console.log(arr);
   return arr.reverse().slice(0, 8);
 };
 

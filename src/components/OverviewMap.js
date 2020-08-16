@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Card from '../components/UI/Card';
+import { BarChartIcon } from '../components/UI/Icons';
 
 import Map from './Map';
 
@@ -27,6 +28,12 @@ const OverviewMapWrapper = styled.div`
     margin-right: 10px;
   }
 
+  .list-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
   .map {
     width: 99%;
     background-color: darkgrey;
@@ -46,7 +53,11 @@ const OverviewMap = ({ countryList, mapData }) => {
     <Card bg='white' border='none'>
       <OverviewMapWrapper>
         <div className='list'>
-          <h2>Most Cases</h2>
+          <div className='list-header'>
+            <BarChartIcon size={35} />
+            &nbsp;
+            <h2>Most Cases</h2>
+          </div>
           <ul>
             {countryList.map((c, i) => {
               return (

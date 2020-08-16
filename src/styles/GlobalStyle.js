@@ -1,6 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 
 const Global = createGlobalStyle`
+
+:root {
+	--mainColor: #eaeaea;
+	--secondaryColor: #fff;
+	--borderColor: #c1c1c1;
+	--mainText: black;
+	--secondaryText: #3b5892;  
+	--previewBg: rgb(251, 249, 243, 0.8);
+	--previewShadow: #f0ead6;
+	--buttonColor: black;
+
+	--casesColor: #3b5892;
+	--deathsColor: #8b0000;
+	--recoveredColor: #006400;
+	--iconBackgroundColor: #c8d3e9;
+  }
 	html {
 		font-size: 62.5%
 		box-sizing: border-box;
@@ -21,7 +37,7 @@ const Global = createGlobalStyle`
 	a {
 		text-decoration: none;
 		cursor: pointer;
-		color: #3b5892;
+		color: var(--secondaryText);
 	}
 	ul {
 		  list-style-type: none

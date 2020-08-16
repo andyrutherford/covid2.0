@@ -10,10 +10,22 @@ const TotalWrapper = styled.div`
   justify-content: space-between;
   ${(props) =>
     props.type &&
+    props.type === 'deaths' &&
     css`
-      color: ${props.color};
+      color: var(--deathsColor);
     `}
-
+  ${(props) =>
+    props.type &&
+    props.type === 'cases' &&
+    css`
+      color: var(--casesColor);
+    `}  
+  ${(props) =>
+    props.type &&
+    props.type === 'recovered' &&
+    css`
+      color: var(--recoveredColor);
+    `}
   h2 {
     margin: 5px 0;
   }

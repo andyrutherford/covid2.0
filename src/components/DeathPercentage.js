@@ -60,7 +60,7 @@ const DeathPercentage = ({ data }) => {
           <PercentIcon size={32} /> <h3>Deaths</h3>
         </div>
         <div>
-          <PieChart chartData={chartData} />
+          <PieChart chartData={chartData} type='deaths' />
         </div>
         <div className='graph-info'>
           <div className='graph-info__left'>

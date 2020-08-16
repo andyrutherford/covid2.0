@@ -61,7 +61,7 @@ const RecoveredPercentage = ({ data }) => {
           <PercentIcon size={32} /> <h3>Recovered</h3>
         </div>
         <div>
-          <PieChart chartData={chartData} />
+          <PieChart chartData={chartData} type='recovered' />
         </div>
         <div className='graph-info'>
           <div className='graph-info__left'>

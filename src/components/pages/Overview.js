@@ -29,12 +29,12 @@ const data = {
   deaths: {
     type: 'deaths',
     title: 'Total Worldwide Deaths',
-    color: 'darkred',
+    color: '#8b0000',
   },
   recovered: {
     type: 'recovered',
     title: 'Total Worldwide Recovered',
-    color: 'darkgreen',
+    color: '#006400',
   },
 };
 

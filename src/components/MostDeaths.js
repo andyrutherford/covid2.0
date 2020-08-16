@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import Card from '../components/UI/Card';
+import { BarChartIcon } from '../components/UI/Icons';
 
 const MostDeathsWrapper = styled.div`
   ul {
@@ -16,6 +17,12 @@ const MostDeathsWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
 `;
 
 const MostDeaths = ({ countryList }) => {
@@ -23,7 +30,12 @@ const MostDeaths = ({ countryList }) => {
     <Card bg='white' border='none'>
       <MostDeathsWrapper>
         <div>
-          <h2>Most Deaths</h2>
+          <div className='header'>
+            {' '}
+            <BarChartIcon size={35} />
+            &nbsp;
+            <h2>Most Deaths</h2>
+          </div>
           <ul>
             {countryList.map((c, i) => {
               return (
