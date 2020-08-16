@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import Container from '../UI/Container';
-
 import Total from '../Total';
 import OverviewMap from '../OverviewMap';
 import RecoveredPercentage from '../RecoveredPercentage';

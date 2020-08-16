@@ -49,9 +49,9 @@ const Global = createGlobalStyle`
         font-size: inherit;
     }
 
-    .active {
-        border-bottom: 3px solid navy;
-    }
+    // .active {
+    //     border-bottom: 3px solid navy;
+    // }
 	.subtext {
 		color: grey;
 	  }

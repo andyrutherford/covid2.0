@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import { Chart } from 'react-google-charts';
 
@@ -70,6 +69,12 @@ const CountryList = ({ list }) => {
               headerCell: '',
               tableCell: '',
               rowNumberCell: 'cell',
+            },
+            chartArea: {
+              width: '200%',
+              left: '20',
+              top: '20',
+              height: '110',
             },
           }}
           rootProps={{ 'data-testid': '1' }}
