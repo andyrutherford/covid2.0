@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ReactCountryFlag from 'react-country-flag';
 
 import Card from '../components/UI/Card';
 import { BarChartIcon } from '../components/UI/Icons';
@@ -65,7 +66,16 @@ const OverviewMap = ({ countryList, mapData }) => {
             {countryList.map((c, i) => {
               return (
                 <li key={i}>
-                  <span>
+                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                    <ReactCountryFlag
+                      countryCode={c.countryCode}
+                      svg
+                      style={{
+                        fontSize: '1.5em',
+                        lineHeight: '1.5em',
+                        marginRight: '0.5em',
+                      }}
+                    />
                     <Link to={`/country/${c.slug}`}>{c.country}</Link>
                   </span>
                   <span>{c.confirmed.toLocaleString()}</span>

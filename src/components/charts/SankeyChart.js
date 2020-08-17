@@ -4,7 +4,7 @@ import { Chart } from 'react-google-charts';
 const SankeyChart = ({ chartData }) => {
   return (
     <Chart
-      width={600}
+      width={'100%'}
       height={'300px'}
       chartType='Sankey'
       loader={<div>Loading Chart</div>}

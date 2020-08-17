@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
 import Card from '../components/UI/Card';
 import { BarChartIcon } from '../components/UI/Icons';
 import SankeyChart from '../components/charts/SankeyChart';
 
 const MostDeathsWrapper = styled.div`
+  display: flex;
   ul {
     margin: 20px 0;
   }
@@ -41,15 +41,15 @@ const MostDeaths = ({ countryList, totalDeaths }) => {
 
   return (
     <Card bg='white' border='none'>
+      <div className='header'>
+        {' '}
+        <BarChartIcon size={35} />
+        &nbsp;
+        <h3>Most Deaths</h3>
+      </div>
       <MostDeathsWrapper>
-        <div className='header'>
-          {' '}
-          <BarChartIcon size={35} />
-          &nbsp;
-          <h3>Most Deaths</h3>
-        </div>
         <SankeyChart chartData={chartData} />
-        {/* <div>
+        <div>
           <div className='header'>
             {' '}
             <BarChartIcon size={35} />
@@ -69,7 +69,7 @@ const MostDeaths = ({ countryList, totalDeaths }) => {
             })}
           </ul>
           <Link to='/country'>See more</Link>
-        </div> */}
+        </div>
       </MostDeathsWrapper>
     </Card>
   );
