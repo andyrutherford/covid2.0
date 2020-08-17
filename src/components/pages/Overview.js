@@ -17,6 +17,7 @@ import {
   formatMostAffectedCountries,
   formatMapData,
 } from '../../utils/formatData';
+import SankeyChart from '../charts/SankeyChart';
 
 const data = {
   cases: {
@@ -156,14 +157,20 @@ const Overview = () => {
             mapData={overviewData.map}
           />
           <div className='bottom'>
-            <Resources />
-            <Resources />
+            <MostDeaths
+              countryList={overviewData.mostDeaths}
+              totalDeaths={overviewData.deaths.totalDeaths}
+            />
+            <MostDeaths
+              countryList={overviewData.mostDeaths}
+              totalDeaths={overviewData.deaths.totalDeaths}
+            />
           </div>
         </div>
         <div className='col-2'>
           <RecoveredPercentage data={overviewData.recovered} />
           <DeathPercentage data={overviewData.deaths} />
-          <MostDeaths countryList={overviewData.mostDeaths} />
+          <Resources />
         </div>
       </OverviewWrapper>
       <Button>Click</Button>
