@@ -20,3 +20,35 @@ const PieChart = ({ chartData, type }) => {
 };
 
 export default PieChart;
+
+// import React from 'react';
+// import { Doughnut } from 'react-chartjs-2';
+
+// const PieChart = ({ chartData, type }) => {
+//   return (
+//     <Doughnut
+//       data={{
+//         datasets: [
+//           {
+//             data: [chartData[1][1], chartData[2][1]],
+//             backgroundColor: [
+//               type === 'recovered' ? 'darkgreen' : 'darkred',
+//               '#3b5892',
+//             ],
+//           },
+//         ],
+
+//         // These labels appear in the legend and in the tooltips when hovering different arcs
+//         labels:
+//           type === 'recovered'
+//             ? ['Recovered', 'Not Recovered']
+//             : ['Deaths', 'Cases'],
+//       }}
+//       width={400}
+//       height={200}
+//       options={{ maintainAspectRatio: false, legend: false }}
+//     />
+//   );
+// };
+
+// export default PieChart;

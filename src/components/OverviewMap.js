@@ -37,7 +37,7 @@ const OverviewMapWrapper = styled.div`
 
   .map {
     width: 99%;
-    background-color: darkgrey;
+    background-color: white;
   }
 
   @media (min-width: 1200px) {
@@ -45,6 +45,7 @@ const OverviewMapWrapper = styled.div`
 
     .list {
       width: 40%;
+      padding: 0 10px;
     }
     .map {
       width: 60%;
