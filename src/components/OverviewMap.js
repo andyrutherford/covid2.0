@@ -8,7 +8,7 @@ import { BarChartIcon } from '../components/UI/Icons';
 import Map from './Map';
 
 const OverviewMapWrapper = styled.div`
-  display: flex;
+  display: block;
   padding: 5px;
 
   ul {
@@ -24,7 +24,7 @@ const OverviewMapWrapper = styled.div`
   }
 
   .list {
-    width: 50%;
+    width: 100%;
     margin-right: 10px;
   }
 
@@ -39,11 +39,14 @@ const OverviewMapWrapper = styled.div`
     background-color: darkgrey;
   }
 
-  @media (max-width: 1100px) {
-    display: block;
+  @media (min-width: 1200px) {
+    display: flex;
 
     .list {
-      width: 100%;
+      width: 40%;
+    }
+    .map {
+      width: 60%;
     }
   }
 `;

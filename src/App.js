@@ -14,6 +14,8 @@ import CountriesPage from './components/pages/CountriesPage';
 import CountryPage from './components/pages/CountryPage';
 import MapPage from './components/pages/MapPage';
 
+import './App.css';
+
 const Wrapper = styled.div`
   display: flex;
 `;
@@ -25,7 +27,7 @@ const App = () => {
         <GlobalStyle />
         <Wrapper>
           <Navbar />
-          <Container color='black' bg='lightgrey' width={1}>
+          <Container color='black' bg='lightgrey' width={'100%'}>
             <Switch>
               <Route path='/' exact component={Overview} />
               <Route path='/world' exact component={World} />

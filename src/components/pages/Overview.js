@@ -69,6 +69,9 @@ const OverviewWrapper = styled.section`
     .total-cards {
       display: block;
     }
+    .bottom {
+      display: block;
+    }
   }
 
   @media (max-width: 1400px) {

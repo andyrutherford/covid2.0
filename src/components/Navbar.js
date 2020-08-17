@@ -12,8 +12,8 @@ const NavbarWrapper = styled.nav`
     position: fixed;
     width: 36px;
     height: 30px;
-    left: 36px;
-    top: 36px;
+    left: 24px;
+    top: 24px;
   }
 
   /* Color/shape of burger icon bars */
@@ -123,7 +123,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 `;
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleStateChange = (state) => {
     setIsOpen(state.isOpen);

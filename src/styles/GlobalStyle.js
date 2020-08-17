@@ -32,7 +32,7 @@ const Global = createGlobalStyle`
       }
 	h1, h2, h3, h4, h5, h6 {
         font-weight: normal;
-        font-family: 'Ubuntu', sans-serif;
+        font-family: 'Nunito', sans-serif;
 	}
 	a {
 		text-decoration: none;
@@ -49,9 +49,9 @@ const Global = createGlobalStyle`
         font-size: inherit;
     }
 
-    // .active {
-    //     border-bottom: 3px solid navy;
-    // }
+    .active-tab {
+        border-bottom: 3px solid navy;
+    }
 	.subtext {
 		color: grey;
 	  }

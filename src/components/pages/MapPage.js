@@ -77,7 +77,9 @@ const MapPage = () => {
         <ul>
           <li>
             <button
-              className={`link subtext ${source === 'cases' ? 'active' : ''}`}
+              className={`link subtext ${
+                source === 'cases' ? 'active-tab' : ''
+              }`}
               onClick={() => changeSource('cases')}
             >
               Total Cases
@@ -85,7 +87,9 @@ const MapPage = () => {
           </li>
           <li>
             <button
-              className={`link subtext ${source === 'deaths' ? 'active' : ''}`}
+              className={`link subtext ${
+                source === 'deaths' ? 'active-tab' : ''
+              }`}
               onClick={() => changeSource('deaths')}
             >
               Total Deaths
@@ -94,7 +98,7 @@ const MapPage = () => {
           <li>
             <button
               className={`link subtext ${
-                source === 'recovered' ? 'active' : ''
+                source === 'recovered' ? 'active-tab' : ''
               }`}
               onClick={() => changeSource('recovered')}
             >
