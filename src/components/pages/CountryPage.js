@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+import ReactCountryFlag from 'react-country-flag';
 
-import Card from '../UI/Card';
 import Total from '../Total';
+import DeathsOverTime from '../DeathsOverTime';
 import CasesOverTime from '../CasesOverTime';
-import SankeyChart from '../charts/SankeyChart';
 
 import { fetchSummary, fetchCountrySummary } from '../../utils/fetch';
 import { formatLineChartData } from '../../utils/formatData';
@@ -15,6 +15,11 @@ import death from '../../assets/death.svg';
 import heart from '../../assets/heart.svg';
 
 const CountryPageWrapper = styled.div`
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
   .total-cards {
     display: flex;
     justify-content: space-between;
@@ -43,6 +48,7 @@ const CountryPage = () => {
   const { country } = useParams();
   const [summary, setSummary] = useState();
   const [casesOverTime, setCasesOverTime] = useState();
+  const [deathsOverTime, setDeathsOverTime] = useState();
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
@@ -50,9 +56,14 @@ const CountryPage = () => {
       let res = await fetchSummary();
       res = res.countries.filter((c) => c.Slug === country);
       let countrySummary = await fetchCountrySummary(country);
-      const chartData = formatLineChartData(countrySummary);
+      const casesChartData = formatLineChartData(countrySummary.cases, 'cases');
+      const deathsChartData = formatLineChartData(
+        countrySummary.deaths,
+        'deaths'
+      );
       setSummary({ ...res[0] });
-      setCasesOverTime(chartData);
+      setCasesOverTime(casesChartData);
+      setDeathsOverTime(deathsChartData);
       setLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -68,7 +79,20 @@ const CountryPage = () => {
 
   return (
     <CountryPageWrapper>
-      <h1>{summary.Country}</h1>
+      <div className='header'>
+        <ReactCountryFlag
+          countryCode={summary.CountryCode}
+          svg
+          style={{
+            fontSize: '2.8em',
+            lineHeight: '2.8em',
+            marginRight: '0.3em',
+            objectFit: 'cover',
+            borderRadius: '100px',
+          }}
+        />
+        <h1>{summary.Country}</h1>
+      </div>
       <div className='total-cards'>
         <Total
           type='cases'
@@ -93,10 +117,8 @@ const CountryPage = () => {
         />
       </div>
       <div style={{ display: 'flex' }}>
-        <Card>
-          <SankeyChart />
-        </Card>
         <CasesOverTime data={casesOverTime} />
+        <DeathsOverTime data={deathsOverTime} />
       </div>
     </CountryPageWrapper>
   );

@@ -5,10 +5,13 @@ import Card from '../components/UI/Card';
 
 const CasesOverTime = ({ data }) => {
   const chartData = [['x', 'Cases'], ...data];
-  console.log(chartData);
   return (
-    <Card>
-      <LineChart chartData={chartData} />
+    <Card border='none'>
+      <LineChart
+        chartData={chartData}
+        title='Confirmed Cases'
+        color='#3b5892'
+      />
     </Card>
   );
 };

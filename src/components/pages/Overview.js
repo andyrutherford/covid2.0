@@ -46,42 +46,39 @@ const Button = styled.button`
 `;
 
 const OverviewWrapper = styled.section`
-  display: flex;
+  display: block;
 
   .col-1 {
-    width: 80%;
+    width: 100%;
   }
 
   .total-cards {
-    display: flex;
-    justify-content: space-between;
+    display: block;
   }
 
   .col-2 {
-    width: 20%;
+    width: 100%;
   }
 
-  .bottom {
-    display: flex;
-  }
-
-  @media (max-width: 1000px) {
+  @media (min-width: 1000px) {
     .total-cards {
-      display: block;
-    }
-    .bottom {
-      display: block;
-    }
-  }
-
-  @media (max-width: 1400px) {
-    display: block;
-    .col-1 {
-      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
     .col-2 {
-      width: 100%;
       display: flex;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    display: flex;
+    .col-1 {
+      width: 80%;
+    }
+    .col-2 {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
     }
   }
 `;

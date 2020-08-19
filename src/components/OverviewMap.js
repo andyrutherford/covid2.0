@@ -75,6 +75,8 @@ const OverviewMap = ({ countryList, mapData }) => {
                         fontSize: '1.5em',
                         lineHeight: '1.5em',
                         marginRight: '0.5em',
+                        objectFit: 'cover',
+                        borderRadius: '100px',
                       }}
                     />
                     <Link to={`/country/${c.slug}`}>{c.country}</Link>
