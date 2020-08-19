@@ -27,7 +27,7 @@ const App = () => {
         <GlobalStyle />
         <Wrapper>
           <Navbar />
-          <Container color='black' bg='lightgrey' width={'100%'}>
+          <Container color='black' bg='#e9edf6' width={'100%'}>
             <Switch>
               <Route path='/' exact component={Overview} />
               <Route path='/world' exact component={World} />

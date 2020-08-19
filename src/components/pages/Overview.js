@@ -8,6 +8,8 @@ import DeathPercentage from '../DeathPercentage';
 import Resources from '../Resources';
 import MostDeaths from '../MostDeaths';
 
+import { GlobeIcon } from '../UI/Icons';
+
 import virus from '../../assets/virus.svg';
 import death from '../../assets/death.svg';
 import heart from '../../assets/heart.svg';
@@ -21,17 +23,17 @@ import {
 const data = {
   cases: {
     type: 'cases',
-    title: 'Total Worldwide Cases',
+    title: 'Total Cases',
     color: '#3b5892',
   },
   deaths: {
     type: 'deaths',
-    title: 'Total Worldwide Deaths',
+    title: 'Total Deaths',
     color: '#8b0000',
   },
   recovered: {
     type: 'recovered',
-    title: 'Total Worldwide Recovered',
+    title: 'Total Recovered',
     color: '#006400',
   },
 };
@@ -48,6 +50,9 @@ const Button = styled.button`
 const OverviewWrapper = styled.section`
   display: block;
 
+  h1 {
+    margin-left: 10px;
+  }
   .col-1 {
     width: 100%;
   }
@@ -60,18 +65,30 @@ const OverviewWrapper = styled.section`
     width: 100%;
   }
 
-  @media (min-width: 1000px) {
+  .col-2 > div {
+    width: 100%;
+  }
+
+  @media (min-width: 900px) {
     .total-cards {
       display: flex;
       justify-content: space-between;
     }
+  }
+
+  @media (min-width: 1000px) {
     .col-2 {
       display: flex;
+    }
+    .col-2 > div {
+      width: 33%;
     }
   }
 
   @media (min-width: 1400px) {
-    display: flex;
+    .content {
+      display: flex;
+    }
     .col-1 {
       width: 80%;
     }
@@ -79,6 +96,10 @@ const OverviewWrapper = styled.section`
       width: 20%;
       display: flex;
       flex-direction: column;
+      align-self: start;
+    }
+    .col-2 > div {
+      width: 100%;
     }
   }
 `;
@@ -122,47 +143,58 @@ const Overview = () => {
 
   return (
     <>
-      <h1>World Overview</h1>
       <OverviewWrapper>
-        <div className='col-1'>
-          <div className='total-cards'>
-            <Total
-              type='cases'
-              data={data.cases}
-              icon={virus}
-              total={overviewData.confirmed.totalConfirmed}
-              recent={overviewData.confirmed.newConfirmed}
+        {' '}
+        <div className='page-header'>
+          <GlobeIcon size={38} />
+          <h1>World Overview</h1>
+        </div>
+        <div className='content'>
+          <div className='col-1'>
+            <div className='total-cards'>
+              <Total
+                type='cases'
+                data={data.cases}
+                icon={virus}
+                total={overviewData.confirmed.totalConfirmed}
+                recent={overviewData.confirmed.newConfirmed}
+              />
+              <Total
+                type='deaths'
+                data={data.deaths}
+                icon={death}
+                total={overviewData.deaths.totalDeaths}
+                recent={overviewData.deaths.newDeaths}
+              />
+              <Total
+                type='recovered'
+                data={data.recovered}
+                icon={heart}
+                total={overviewData.recovered.totalRecovered}
+                recent={overviewData.recovered.newRecovered}
+              />
+            </div>
+            <OverviewMap
+              countryList={overviewData.mostCases}
+              mapData={overviewData.map}
             />
-            <Total
-              type='deaths'
-              data={data.deaths}
-              icon={death}
-              total={overviewData.deaths.totalDeaths}
-              recent={overviewData.deaths.newDeaths}
-            />
-            <Total
-              type='recovered'
-              data={data.recovered}
-              icon={heart}
-              total={overviewData.recovered.totalRecovered}
-              recent={overviewData.recovered.newRecovered}
-            />
-          </div>
-          <OverviewMap
-            countryList={overviewData.mostCases}
-            mapData={overviewData.map}
-          />
-          <div className='bottom'>
+
             <MostDeaths
               countryList={overviewData.mostDeaths}
               totalDeaths={overviewData.deaths.totalDeaths}
             />
           </div>
-        </div>
-        <div className='col-2'>
-          <RecoveredPercentage data={overviewData.recovered} />
-          <DeathPercentage data={overviewData.deaths} />
-          <Resources />
+          <div className='col-2'>
+            <div>
+              <RecoveredPercentage data={overviewData.recovered} />
+            </div>
+            <div>
+              <DeathPercentage data={overviewData.deaths} />
+            </div>
+            <div>
+              <Resources />
+            </div>
+          </div>
         </div>
       </OverviewWrapper>
       <Button>Click</Button>

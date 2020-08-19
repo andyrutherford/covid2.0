@@ -11,6 +11,7 @@ const Global = createGlobalStyle`
 	--previewBg: rgb(251, 249, 243, 0.8);
 	--previewShadow: #f0ead6;
 	--buttonColor: black;
+	--backgroundColor: #e9edf6;
 
 	--casesColor: #3b5892;
 	--deathsColor: #8b0000;
@@ -20,6 +21,7 @@ const Global = createGlobalStyle`
 	html {
 		font-size: 62.5%
 		box-sizing: border-box;
+		background-color: #e9edf6
 	}
 	*, *:before, *:after {
 		padding: 0;
@@ -66,6 +68,24 @@ const Global = createGlobalStyle`
 	}
 	*:focus {
 	  outline: none;
+	}
+
+	.page-header {
+		display: flex;
+		align-items: center;
+	}
+
+	@media (max-width: 1500px) {
+		.page-header {
+			padding-left: 50px;
+			margin-bottom: 10px;
+		}
+	}
+	@media (max-width: 600px) {
+		.page-header {
+			padding-top: 5px;
+			padding-left: 60px;
+		}
 	}
 `;
 

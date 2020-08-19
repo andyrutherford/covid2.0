@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Card from '../UI/Card';
-
+import { MapIcon } from '../UI/Icons';
 import Map from '../Map';
 import { fetchSummary } from '../../utils/fetch';
 import { formatMapData } from '../../utils/formatData';
 
 const MapPageWrapper = styled.div`
+  h1 {
+    margin-left: 10px;
+  }
   ul {
     display: flex;
     border-bottom: 1px solid lightgrey;
@@ -72,7 +75,10 @@ const MapPage = () => {
 
   return (
     <MapPageWrapper>
-      <h1>World Map</h1>
+      <div className='page-header'>
+        <MapIcon size={46} />
+        <h1>World Map</h1>
+      </div>
       <Card>
         <ul>
           <li>

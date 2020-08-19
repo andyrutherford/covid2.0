@@ -101,7 +101,6 @@ export const formatTable = (list) => {
 };
 
 export const formatLineChartData = (list, type) => {
-  console.log(list, type);
   return list.data.map((i) => {
     const date = i.Date.split('-').slice(1, 3).join('-').split('T')[0];
     return [date, i.Cases];

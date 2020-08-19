@@ -57,3 +57,9 @@ ul {
 a {
   text-decoration: none;
 }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 38px;
+  }
+}

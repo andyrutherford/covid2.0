@@ -38,7 +38,7 @@ const TotalWrapper = styled.div`
 
   .new {
     display: flex;
-    align-iteme: center;
+    align-items: center;
   }
 `;
 const Total = ({ type, icon, total, recent, data: { title, color } }) => {

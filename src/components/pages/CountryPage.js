@@ -15,14 +15,27 @@ import death from '../../assets/death.svg';
 import heart from '../../assets/heart.svg';
 
 const CountryPageWrapper = styled.div`
-  .header {
-    display: flex;
-    align-items: center;
+  .total-cards {
+    display: block;
   }
 
-  .total-cards {
-    display: flex;
-    justify-content: space-between;
+  .charts {
+    display: block;
+  }
+
+  @media (min-width: 900px) {
+    .total-cards {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media (min-width: 1200px) {
+    .charts {
+      display: flex;
+    }
+    .charts > div {
+      width: 50%;
+    }
   }
 `;
 
@@ -79,7 +92,7 @@ const CountryPage = () => {
 
   return (
     <CountryPageWrapper>
-      <div className='header'>
+      <div className='page-header'>
         <ReactCountryFlag
           countryCode={summary.CountryCode}
           svg
@@ -116,9 +129,13 @@ const CountryPage = () => {
           recent={summary.NewRecovered}
         />
       </div>
-      <div style={{ display: 'flex' }}>
-        <CasesOverTime data={casesOverTime} />
-        <DeathsOverTime data={deathsOverTime} />
+      <div className='charts'>
+        <div>
+          <CasesOverTime data={casesOverTime} />
+        </div>
+        <div>
+          <DeathsOverTime data={deathsOverTime} />
+        </div>
       </div>
     </CountryPageWrapper>
   );

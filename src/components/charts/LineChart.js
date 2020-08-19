@@ -2,7 +2,6 @@ import React from 'react';
 import { Chart } from 'react-google-charts';
 
 const LineChart = ({ chartData, title, color }) => {
-  const lineColor = color;
   return (
     <Chart
       width={'100%'}
@@ -15,7 +14,7 @@ const LineChart = ({ chartData, title, color }) => {
           title: 'Date',
         },
         vAxis: {
-          title: { title },
+          title,
         },
         legend: {
           position: 'none',

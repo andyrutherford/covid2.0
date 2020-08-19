@@ -9,27 +9,11 @@ const CountryListWrapper = styled.div`
   a {
     color: #3b5892;
   }
-  .bold-font {
-    font-weight: bold;
-    padding: 10px 0;
-    margin: 10px 0;
-  }
-
-  .right-text {
-    text-align: right;
-    padding: 10px 0;
-    margin: 10px 0;
-  }
 
   .header-row {
     font-size: 18px;
     padding: 10px 0;
     margin: 10px 0;
-  }
-
-  .table-row {
-    display: flex;
-    justify-content: space-between;
   }
   .cell {
     padding: 20px 0;
@@ -37,9 +21,8 @@ const CountryListWrapper = styled.div`
 `;
 
 const CountryList = ({ list }) => {
-  console.log(list);
   return (
-    <Card>
+    <Card m={0} mt={'10px'} border='none'>
       <CountryListWrapper>
         <Chart
           width={'100%'}
