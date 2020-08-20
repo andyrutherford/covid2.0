@@ -89,7 +89,8 @@ const NavbarWrapper = styled.nav`
   }
 
   h1 {
-    font-size: 1.8rem;
+    color: #3b5892;
+    font-size: 3.5rem;
   }
 
   a {
@@ -113,12 +114,25 @@ const NavbarWrapper = styled.nav`
     padding-left: 10px;
   }
 
+  .logo-text span {
+    display: block;
+    text-align: center;
+    border-radius: 6px;
+    background-color: #3b5892;
+    color: #fff;
+    margin: 0 30px;
+    margin-top: 0px;
+    margin-top: -5px;
+    line-height: 1;
+    font-size: 1.8rem;
+  }
+
   .menu-bottom {
     border-top: 1px solid grey;
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ themeHandler }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleStateChange = (state) => {
@@ -167,6 +181,9 @@ const Navbar = () => {
                 <MapIcon size={28} />
                 <span>Map</span>
               </NavLink>
+            </li>
+            <li>
+              <button onClick={() => themeHandler()}>Theme</button>
             </li>
           </ul>
         </div>

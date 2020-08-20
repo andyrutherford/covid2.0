@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -21,12 +21,19 @@ const Wrapper = styled.div`
 `;
 
 const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const themeHandler = () => {
+    setDarkMode(!darkMode);
+    console.log(darkMode);
+  };
+
   return (
-    <Theme>
+    <Theme darkMode={darkMode}>
       <Router>
         <GlobalStyle />
         <Wrapper>
-          <Navbar />
+          <Navbar themeHandler={themeHandler} />
           <Container color='black' bg='#e9edf6' width={'100%'}>
             <Switch>
               <Route path='/' exact component={Overview} />

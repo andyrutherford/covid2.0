@@ -79,7 +79,7 @@ const MapPage = () => {
         <MapIcon size={46} />
         <h1>World Map</h1>
       </div>
-      <Card>
+      <Card border='none'>
         <ul>
           <li>
             <button
