@@ -2,7 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import Card from './UI/Card';
-import { PlusIcon } from '../components/UI/Icons';
+import {
+  PlusIcon,
+  DeathIcon,
+  VirusIcon,
+  HeartIcon,
+} from '../components/UI/Icons';
 
 const TotalWrapper = styled.div`
   display: flex;
@@ -12,19 +17,40 @@ const TotalWrapper = styled.div`
     props.type &&
     props.type === 'deaths' &&
     css`
-      color: var(--deathsColor);
+      color: ${(props) => props.theme.colors.deathsColor};
+      .left svg {
+        stroke: ${(props) => props.theme.colors.deathsColor};
+      }
+      .right svg {
+        stroke: ${(props) => props.theme.colors.deathsColor};
+        fill: ${(props) => props.theme.colors.deathsColor};
+      }
     `}
   ${(props) =>
     props.type &&
     props.type === 'cases' &&
     css`
-      color: var(--casesColor);
+      color: ${(props) => props.theme.colors.casesColor};
+      .left svg {
+        stroke: ${(props) => props.theme.colors.casesColor};
+      }
+      .right svg {
+        stroke: ${(props) => props.theme.colors.casesColor};
+        fill: ${(props) => props.theme.colors.casesColor};
+      }
     `}  
   ${(props) =>
     props.type &&
     props.type === 'recovered' &&
     css`
-      color: var(--recoveredColor);
+      color: ${(props) => props.theme.colors.recoveredColor};
+      .left svg {
+        stroke: ${(props) => props.theme.colors.recoveredColor};
+      }
+      .right svg {
+        stroke: ${(props) => props.theme.colors.recoveredColor};
+        fill: ${(props) => props.theme.colors.recoveredColor};
+      }
     `}
   h2 {
     margin: 5px 0;
@@ -43,7 +69,7 @@ const TotalWrapper = styled.div`
 `;
 const Total = ({ type, icon, total, recent, data: { title, color } }) => {
   return (
-    <Card bg='white' borderColor={color}>
+    <Card type={type}>
       <TotalWrapper type={type} color={color}>
         <div className='left'>
           <span className='subtext'>{title}</span>
@@ -54,7 +80,12 @@ const Total = ({ type, icon, total, recent, data: { title, color } }) => {
             New {type[0].toUpperCase() + type.slice(1, type.length)}
           </span>
         </div>
-        <img src={icon} width='50px' alt='icon' />
+        {/* <img src={icon} width='50px' alt='icon' /> */}
+        <div className='right'>
+          {type === 'cases' && <VirusIcon size={50} />}
+          {type === 'deaths' && <DeathIcon size={50} />}
+          {type === 'recovered' && <HeartIcon size={50} />}
+        </div>
       </TotalWrapper>
     </Card>
   );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { slide as Menu } from 'react-burger-menu';
 import { NavLink } from 'react-router-dom';
 
-import logo from '../assets/coronavirus.svg';
+import { LogoIcon } from './UI/Icons';
 import { ChartIcon, WorldIcon, FlagIcon, MapIcon } from './UI/Icons';
 
 const NavbarWrapper = styled.nav`
@@ -149,7 +149,7 @@ const Navbar = ({ themeHandler }) => {
         <div className='menu-top'>
           <div>
             <div className='logo'>
-              <img src={logo} alt='covid' />
+              <LogoIcon />
               <div className='logo-text'>
                 <h1>COVID-19</h1>
                 <span>Dashboard</span>

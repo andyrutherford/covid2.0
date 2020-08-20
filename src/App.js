@@ -25,7 +25,6 @@ const App = () => {
 
   const themeHandler = () => {
     setDarkMode(!darkMode);
-    console.log(darkMode);
   };
 
   return (

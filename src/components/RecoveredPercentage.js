@@ -15,6 +15,9 @@ const RecoveredPercentageWrapper = styled.div`
     border: 0.1px solid lightgrey;
     margin: 5px 0;
   }
+  svg {
+    fill: ${(props) => props.theme.colors.textColor};
+  }
 
   .header {
     display: flex;

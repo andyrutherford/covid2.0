@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Chart } from 'react-google-charts';
+import { ThemeContext } from 'styled-components';
 
 const PieChart = ({ chartData, type }) => {
+  const themeContext = useContext(ThemeContext);
+  const {
+    cardBackground,
+    casesColor,
+    deathsColor,
+    recoveredColor,
+  } = themeContext.colors;
   return (
     <Chart
       width={'100%'}
@@ -12,7 +20,8 @@ const PieChart = ({ chartData, type }) => {
       options={{
         legend: 'none',
         chartArea: { width: '100%', height: '90%' },
-        colors: [type === 'deaths' ? '#8b0000' : '#006400', '#3b5892'],
+        colors: [type === 'deaths' ? deathsColor : recoveredColor, casesColor],
+        backgroundColor: cardBackground,
       }}
       rootProps={{ 'data-testid': '1' }}
     />

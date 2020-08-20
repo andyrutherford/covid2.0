@@ -16,6 +16,10 @@ const DeathPercentageWrapper = styled.div`
     margin: 5px 0;
   }
 
+  svg {
+    fill: ${(props) => props.theme.colors.textColor};
+  }
+
   .header {
     display: flex;
     align-items: center;
