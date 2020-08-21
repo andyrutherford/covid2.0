@@ -5,6 +5,7 @@ export default {
     buttonBackground: '#5E81AC',
     linkColor: '#3b5892',
     textColor: '#000',
+    secondaryTextColor: '#808080',
     buttonColor: '#ECEFF4',
     black: '#000e1a',
     white: '#fff',

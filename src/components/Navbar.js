@@ -44,7 +44,8 @@ const NavbarWrapper = styled.nav`
 
   /* General sidebar styles */
   .bm-menu {
-    background: #fff;
+    // background: #fff;
+    background: ${(props) => props.theme.colors.cardBackground};
     padding: 1em;
     font-size: 1.15em;
   }
@@ -88,26 +89,23 @@ const NavbarWrapper = styled.nav`
     background-color: lightgrey;
   }
 
+  li svg {
+    stroke: ${(props) => props.theme.colors.linkColor};
+  }
+
   h1 {
     color: #3b5892;
     font-size: 3.5rem;
   }
 
   a {
-    color: ${(props) => props.theme.colors.navy};
+    color: ${(props) => props.theme.colors.linkColor};
     display: flex;
     align-items: center;
   }
 
-  svg {
-    margin-right: 10px;
-  }
   .logo {
     display: flex;
-  }
-
-  .logo img {
-    height: 55px;
   }
 
   .logo-text {
@@ -126,7 +124,9 @@ const NavbarWrapper = styled.nav`
     line-height: 1;
     font-size: 1.8rem;
   }
-
+  .navlink-text {
+    margin-left: 10px;
+  }
   .menu-bottom {
     border-top: 1px solid grey;
   }
@@ -160,26 +160,26 @@ const Navbar = ({ themeHandler }) => {
             <li>
               <NavLink to='/' onClick={() => closeMenu()}>
                 <ChartIcon size={28} />
-                <span>Overview</span>
+                <span className='navlink-text'>Overview</span>
               </NavLink>
             </li>
             <li>
               <NavLink to='/world' onClick={() => closeMenu()}>
                 <WorldIcon size={28} />
-                <span>World</span>
+                <span className='navlink-text'>World</span>
               </NavLink>
             </li>
             <li>
               <NavLink to='/country' onClick={() => closeMenu()}>
                 <FlagIcon size={28} />
-                <span>Country</span>
+                <span className='navlink-text'>Country</span>
               </NavLink>
             </li>
             <li>
               {' '}
               <NavLink to='/map' onClick={() => closeMenu()}>
                 <MapIcon size={28} />
-                <span>Map</span>
+                <span className='navlink-text'>Map</span>
               </NavLink>
             </li>
             <li>

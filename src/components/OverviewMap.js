@@ -36,8 +36,8 @@ const OverviewMapWrapper = styled.div`
   }
 
   .map {
-    width: 99%;
-    background-color: white;
+    width: 100%;
+    background-color: ${(props) => props.theme.colors.cardBackground};
   }
 
   @media (min-width: 1200px) {

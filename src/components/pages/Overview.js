@@ -111,7 +111,6 @@ const Overview = () => {
   const fetchData = async () => {
     try {
       const summary = await fetchSummary();
-      console.log(summary);
       const mostCases = formatMostAffectedCountries(summary.countries, 'cases');
       const mostDeaths = formatMostAffectedCountries(
         summary.countries,
@@ -142,63 +141,59 @@ const Overview = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <>
-      <OverviewWrapper>
-        {' '}
-        <div className='page-header'>
-          <GlobeIcon size={38} />
-          <h1>World Overview</h1>
-        </div>
-        <div className='content'>
-          <div className='col-1'>
-            <div className='total-cards'>
-              <Total
-                type='cases'
-                data={data.cases}
-                icon={virus}
-                total={overviewData.confirmed.totalConfirmed}
-                recent={overviewData.confirmed.newConfirmed}
-              />
-              <Total
-                type='deaths'
-                data={data.deaths}
-                icon={death}
-                total={overviewData.deaths.totalDeaths}
-                recent={overviewData.deaths.newDeaths}
-              />
-              <Total
-                type='recovered'
-                data={data.recovered}
-                icon={heart}
-                total={overviewData.recovered.totalRecovered}
-                recent={overviewData.recovered.newRecovered}
-              />
-            </div>
-            <OverviewMap
-              countryList={overviewData.mostCases}
-              mapData={overviewData.map}
+    <OverviewWrapper>
+      <div className='page-header'>
+        <GlobeIcon size={38} />
+        <h1>World Overview</h1>
+      </div>
+      <div className='content'>
+        <div className='col-1'>
+          <div className='total-cards'>
+            <Total
+              type='cases'
+              data={data.cases}
+              icon={virus}
+              total={overviewData.confirmed.totalConfirmed}
+              recent={overviewData.confirmed.newConfirmed}
             />
+            <Total
+              type='deaths'
+              data={data.deaths}
+              icon={death}
+              total={overviewData.deaths.totalDeaths}
+              recent={overviewData.deaths.newDeaths}
+            />
+            <Total
+              type='recovered'
+              data={data.recovered}
+              icon={heart}
+              total={overviewData.recovered.totalRecovered}
+              recent={overviewData.recovered.newRecovered}
+            />
+          </div>
+          <OverviewMap
+            countryList={overviewData.mostCases}
+            mapData={overviewData.map}
+          />
 
-            <MostDeaths
-              countryList={overviewData.mostDeaths}
-              totalDeaths={overviewData.deaths.totalDeaths}
-            />
+          <MostDeaths
+            countryList={overviewData.mostDeaths}
+            totalDeaths={overviewData.deaths.totalDeaths}
+          />
+        </div>
+        <div className='col-2'>
+          <div>
+            <RecoveredPercentage data={overviewData.recovered} />
           </div>
-          <div className='col-2'>
-            <div>
-              <RecoveredPercentage data={overviewData.recovered} />
-            </div>
-            <div>
-              <DeathPercentage data={overviewData.deaths} />
-            </div>
-            <div>
-              <Resources />
-            </div>
+          <div>
+            <DeathPercentage data={overviewData.deaths} />
+          </div>
+          <div>
+            <Resources />
           </div>
         </div>
-      </OverviewWrapper>
-      <Button>Click</Button>
-    </>
+      </div>
+    </OverviewWrapper>
   );
 };
 

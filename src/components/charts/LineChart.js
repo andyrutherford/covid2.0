@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Chart } from 'react-google-charts';
+import { ThemeContext } from 'styled-components';
 
 const LineChart = ({ chartData, title, color }) => {
+  const themeContext = useContext(ThemeContext);
+  const { cardBackground } = themeContext.colors;
   return (
     <Chart
       width={'100%'}
@@ -20,6 +23,7 @@ const LineChart = ({ chartData, title, color }) => {
           position: 'none',
         },
         colors: [color],
+        backgroundColor: cardBackground,
       }}
       rootProps={{ 'data-testid': '1' }}
     />

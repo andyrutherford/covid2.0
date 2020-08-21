@@ -3,19 +3,24 @@ import { Chart } from 'react-google-charts';
 import { ThemeContext } from 'styled-components';
 
 const Map = ({ mapData, source }) => {
+  const themeContext = useContext(ThemeContext);
+  const {
+    cardBackground,
+    casesColor,
+    deathsColor,
+    recoveredColor,
+  } = themeContext.colors;
+
   let colors;
   if (source === 'cases') {
-    colors = ['#d9dcee', '#3b5892'];
+    colors = ['#d9dcee', casesColor];
   }
   if (source === 'deaths') {
-    colors = ['#fff', 'darkred'];
+    colors = ['#fff', deathsColor];
   }
   if (source === 'recovered') {
-    colors = ['#fff', 'darkgreen'];
+    colors = ['#fff', recoveredColor];
   }
-
-  const themeContext = useContext(ThemeContext);
-  const bgColor = themeContext.colors.cardBackground;
 
   return (
     <div>
@@ -28,7 +33,7 @@ const Map = ({ mapData, source }) => {
         rootProps={{ 'data-testid': '1' }}
         options={{
           colorAxis: { colors },
-          backgroundColor: bgColor,
+          backgroundColor: cardBackground,
           is3D: true,
         }}
       />
