@@ -30,7 +30,7 @@ const App = () => {
     <Theme darkMode={isDarkMode}>
       <Router>
         <GlobalStyle />
-        <Navbar themeHandler={themeHandler} />
+        <Navbar themeHandler={themeHandler} isDarkMode={isDarkMode} />
         <Container>
           <Switch>
             <Route path='/' exact component={Overview} />

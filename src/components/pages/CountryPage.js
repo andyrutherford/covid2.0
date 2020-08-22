@@ -10,10 +10,6 @@ import CasesOverTime from '../CasesOverTime';
 import { fetchSummary, fetchCountrySummary } from '../../utils/fetch';
 import { formatLineChartData } from '../../utils/formatData';
 
-import virus from '../../assets/virus.svg';
-import death from '../../assets/death.svg';
-import heart from '../../assets/heart.svg';
-
 const CountryPageWrapper = styled.div`
   .total-cards {
     display: block;
@@ -110,21 +106,18 @@ const CountryPage = () => {
         <Total
           type='cases'
           data={data.cases}
-          icon={virus}
           total={summary.TotalConfirmed}
           recent={summary.NewConfirmed}
         />
         <Total
           type='deaths'
           data={data.deaths}
-          icon={death}
           total={summary.TotalDeaths}
           recent={summary.NewDeaths}
         />
         <Total
           type='recovered'
           data={data.recovered}
-          icon={heart}
           total={summary.TotalRecovered}
           recent={summary.NewRecovered}
         />

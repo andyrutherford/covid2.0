@@ -9,11 +9,6 @@ import Resources from '../Resources';
 import MostDeaths from '../MostDeaths';
 
 import { GlobeIcon } from '../UI/Icons';
-
-import virus from '../../assets/virus.svg';
-import death from '../../assets/death.svg';
-import heart from '../../assets/heart.svg';
-
 import { fetchSummary } from '../../utils/fetch';
 import {
   formatMostAffectedCountries,
@@ -152,21 +147,18 @@ const Overview = () => {
             <Total
               type='cases'
               data={data.cases}
-              icon={virus}
               total={overviewData.confirmed.totalConfirmed}
               recent={overviewData.confirmed.newConfirmed}
             />
             <Total
               type='deaths'
               data={data.deaths}
-              icon={death}
               total={overviewData.deaths.totalDeaths}
               recent={overviewData.deaths.newDeaths}
             />
             <Total
               type='recovered'
               data={data.recovered}
-              icon={heart}
               total={overviewData.recovered.totalRecovered}
               recent={overviewData.recovered.newRecovered}
             />

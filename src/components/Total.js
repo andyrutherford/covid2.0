@@ -67,7 +67,7 @@ const TotalWrapper = styled.div`
     align-items: center;
   }
 `;
-const Total = ({ type, icon, total, recent, data: { title, color } }) => {
+const Total = ({ type, total, recent, data: { title, color } }) => {
   return (
     <Card type={type}>
       <TotalWrapper type={type} color={color}>
