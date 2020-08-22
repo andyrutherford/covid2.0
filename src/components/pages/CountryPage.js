@@ -84,7 +84,12 @@ const CountryPage = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <div style={{ paddingLeft: '4rem' }}>
+        <h1>Loading...</h1>
+      </div>
+    );
 
   return (
     <CountryPageWrapper>

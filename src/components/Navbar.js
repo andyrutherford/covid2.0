@@ -46,9 +46,8 @@ const NavbarWrapper = styled.nav`
 
   /* General sidebar styles */
   .bm-menu {
-    // background: #fff;
     background: ${(props) => props.theme.colors.cardBackground};
-    padding: 1em;
+    padding: 0.5em;
     font-size: 1.15em;
   }
 
@@ -108,6 +107,7 @@ const NavbarWrapper = styled.nav`
 
   .logo {
     display: flex;
+    align-items: center;
   }
 
   .logo-text {
@@ -205,6 +205,16 @@ const NavbarWrapper = styled.nav`
   .slider.round:before {
     border-radius: 50%;
   }
+
+  @media (max-width: 600px) {
+    .bm-burger-button {
+      position: fixed;
+      width: 36px;
+      height: 30px;
+      left: 18px;
+      top: 18px;
+    }
+  }
 `;
 
 const Navbar = ({ themeHandler, isDarkMode }) => {
@@ -222,13 +232,11 @@ const Navbar = ({ themeHandler, isDarkMode }) => {
     <NavbarWrapper>
       <Menu isOpen={isOpen} onStateChange={(state) => handleStateChange(state)}>
         <div className='menu-top'>
-          <div>
-            <div className='logo'>
-              <LogoIcon />
-              <div className='logo-text'>
-                <h1>COVID-19</h1>
-                <span>Dashboard</span>
-              </div>
+          <div className='logo'>
+            <LogoIcon size={60} />
+            <div className='logo-text'>
+              <h1>COVID-19</h1>
+              <span>Dashboard</span>
             </div>
           </div>
           <ul>
@@ -260,7 +268,7 @@ const Navbar = ({ themeHandler, isDarkMode }) => {
           </ul>
         </div>
         <div className='menu-bottom'>
-          <label id='switch' className='switch' for='slider'>
+          <label id='switch' className='switch' htmlFor='slider'>
             <input
               type='checkbox'
               onChange={() => themeHandler()}

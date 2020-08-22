@@ -74,7 +74,12 @@ const MapPage = () => {
     return <Map mapData={data} source={source} />;
   };
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <div style={{ paddingLeft: '4rem' }}>
+        <h1>Loading...</h1>
+      </div>
+    );
 
   return (
     <MapPageWrapper>

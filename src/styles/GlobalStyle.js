@@ -55,23 +55,7 @@ const Global = createGlobalStyle`
 	  outline: none;
 	}
 
-	.page-header {
-		display: flex;
-		align-items: center;
-	}
-
-	@media (max-width: 1500px) {
-		.page-header {
-			padding-left: 50px;
-			margin-bottom: 10px;
-		}
-	}
-	@media (max-width: 600px) {
-		.page-header {
-			padding-top: 5px;
-			padding-left: 60px;
-		}
-	}
+	
 `;
 
 export default Global;

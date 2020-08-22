@@ -33,21 +33,17 @@ const data = {
   },
 };
 
-const Button = styled.button`
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
-  /* Color the border and text with theme.main */
-  background-color: ${(props) => props.theme.colors.prim};
-`;
-
 const OverviewWrapper = styled.section`
   display: block;
 
   h1 {
     margin-left: 10px;
   }
+
+  .world-span {
+    display: none;
+  }
+
   .col-1 {
     width: 100%;
   }
@@ -65,6 +61,9 @@ const OverviewWrapper = styled.section`
   }
 
   @media (min-width: 900px) {
+    .world-span {
+      display: inline;
+    }
     .total-cards {
       display: flex;
       justify-content: space-between;
@@ -76,7 +75,7 @@ const OverviewWrapper = styled.section`
       display: flex;
     }
     .col-2 > div {
-      width: 33%;
+      width: 33.333%;
     }
   }
 
@@ -133,13 +132,20 @@ const Overview = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <div style={{ paddingLeft: '4rem' }}>
+        <h1>Loading...</h1>
+      </div>
+    );
 
   return (
     <OverviewWrapper>
       <div className='page-header'>
         <GlobeIcon size={38} />
-        <h1>World Overview</h1>
+        <h1>
+          <span className='world-span'>World</span> Overview
+        </h1>
       </div>
       <div className='content'>
         <div className='col-1'>

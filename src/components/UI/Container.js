@@ -13,6 +13,10 @@ const Container = styled.div`
   .page-header {
     color: ${(props) => props.theme.colors.textColor};
     fill: ${(props) => props.theme.colors.textColor};
+      display: flex;
+      align-items: center;
+
+
   }
 
   .page-header svg {
@@ -25,6 +29,15 @@ const Container = styled.div`
   @media screen and (max-width: 1500px) {
     padding-left:  2.5%;
     padding-right:  2.5%;
+    .page-header {
+      padding-left: 50px;
+      margin-bottom: 10px;
+    }
+  }
+  @media (max-width: 600px) {
+    .page-header {
+      padding-left: 60px;
+    }
   }
 `;
 
