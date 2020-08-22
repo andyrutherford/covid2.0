@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Container from './components/UI/Container';
@@ -16,33 +15,31 @@ import MapPage from './components/pages/MapPage';
 
 import './App.css';
 
-const Wrapper = styled.div`
-  display: flex;
-`;
-
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const stored = localStorage.getItem('isDarkMode');
+  const [isDarkMode, setIsDarkMode] = useState(
+    stored === 'true' ? true : false
+  );
 
   const themeHandler = () => {
-    setDarkMode(!darkMode);
+    setIsDarkMode(!isDarkMode);
+    localStorage.setItem('isDarkMode', !isDarkMode);
   };
 
   return (
-    <Theme darkMode={darkMode}>
+    <Theme darkMode={isDarkMode}>
       <Router>
         <GlobalStyle />
-        <Wrapper>
-          <Navbar themeHandler={themeHandler} />
-          <Container>
-            <Switch>
-              <Route path='/' exact component={Overview} />
-              <Route path='/world' exact component={World} />
-              <Route path='/country' exact component={CountriesPage} />
-              <Route path='/country/:country' exact component={CountryPage} />
-              <Route path='/map' exact component={MapPage} />
-            </Switch>
-          </Container>
-        </Wrapper>
+        <Navbar themeHandler={themeHandler} />
+        <Container>
+          <Switch>
+            <Route path='/' exact component={Overview} />
+            <Route path='/world' exact component={World} />
+            <Route path='/country' exact component={CountriesPage} />
+            <Route path='/country/:country' exact component={CountryPage} />
+            <Route path='/map' exact component={MapPage} />
+          </Switch>
+        </Container>
       </Router>
     </Theme>
   );
