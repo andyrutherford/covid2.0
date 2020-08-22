@@ -24,6 +24,9 @@ const MapPageWrapper = styled.div`
     padding-bottom: 4px;
     transition: none;
   }
+  .active-tab {
+    border-bottom: 3px solid ${(props) => props.theme.colors.casesColor};
+  }
 `;
 
 const MapPage = () => {

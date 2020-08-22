@@ -3,25 +3,13 @@ import { createGlobalStyle } from 'styled-components';
 const Global = createGlobalStyle`
 
 :root {
-	--mainColor: #eaeaea;
-	--secondaryColor: #fff;
-	--borderColor: #c1c1c1;
-	--mainText: black;
-	--secondaryText: #3b5892;  
-	--previewBg: rgb(251, 249, 243, 0.8);
-	--previewShadow: #f0ead6;
-	--buttonColor: black;
-	--backgroundColor: #e9edf6;
-
-	--casesColor: #3b5892;
-	--deathsColor: #8b0000;
-	--recoveredColor: #006400;
-	--iconBackgroundColor: #c8d3e9;
   }
-	html {
+	html, body {
 		font-size: 62.5%
 		box-sizing: border-box;
-		background-color: #e9edf6
+		height: 100%;
+		background: ${(props) => props.theme.colors.background}
+
 	}
 	*, *:before, *:after {
 		padding: 0;
@@ -30,7 +18,7 @@ const Global = createGlobalStyle`
 	}
     body * {
         transition: 0.2s;
-        font-family: 'Nunito', sans-serif;
+		font-family: 'Nunito', sans-serif;
       }
 	h1, h2, h3, h4, h5, h6 {
         font-weight: normal;
@@ -51,9 +39,6 @@ const Global = createGlobalStyle`
         font-size: inherit;
     }
 
-    .active-tab {
-        border-bottom: 3px solid navy;
-    }
 	.subtext {
 		color: grey;
 	  }

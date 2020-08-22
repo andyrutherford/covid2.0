@@ -33,7 +33,7 @@ const App = () => {
         <GlobalStyle />
         <Wrapper>
           <Navbar themeHandler={themeHandler} />
-          <Container color='black' bg='#e9edf6' width={'100%'}>
+          <Container>
             <Switch>
               <Route path='/' exact component={Overview} />
               <Route path='/world' exact component={World} />

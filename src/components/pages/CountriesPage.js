@@ -21,6 +21,8 @@ const CountriesPageWrapper = styled.div`
     border-radius: 8px;
     padding: 0 5px;
     font-size: 16px;
+    background: ${(props) => props.theme.colors.cardBackground};
+    color: ${(props) => props.theme.colors.textColor};
   }
 
   @media (min-width: 1000px) {

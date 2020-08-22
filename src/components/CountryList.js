@@ -10,6 +10,11 @@ const CountryListWrapper = styled.div`
     color: #3b5892;
   }
 
+  tr {
+    background: ${(props) => props.theme.colors.cardBackground};
+    color: ${(props) => props.theme.colors.textColor};
+  }
+
   .header-row {
     font-size: 18px;
     padding: 10px 0;

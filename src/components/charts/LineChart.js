@@ -4,7 +4,7 @@ import { ThemeContext } from 'styled-components';
 
 const LineChart = ({ chartData, title, color }) => {
   const themeContext = useContext(ThemeContext);
-  const { cardBackground } = themeContext.colors;
+  const { cardBackground, textColor } = themeContext.colors;
   return (
     <Chart
       width={'100%'}
@@ -15,9 +15,13 @@ const LineChart = ({ chartData, title, color }) => {
       options={{
         hAxis: {
           title: 'Date',
+          textStyle: { color: textColor },
+          titleTextStyle: { color: textColor },
         },
         vAxis: {
           title,
+          textStyle: { color: textColor },
+          titleTextStyle: { color: textColor },
         },
         legend: {
           position: 'none',
