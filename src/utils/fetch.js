@@ -8,7 +8,7 @@ const url = {
   countrySummary: 'https://api.covid19api.com/total/country/',
 };
 
-const testData = true;
+const testData = false;
 
 export const fetchSummary = async () => {
   if (testData) {

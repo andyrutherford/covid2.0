@@ -5,7 +5,6 @@ const Global = createGlobalStyle`
 :root {
   }
 	html, body {
-		font-size: 62.5%
 		box-sizing: border-box;
 		height: 100%;
 		background: ${(props) => props.theme.colors.background}
