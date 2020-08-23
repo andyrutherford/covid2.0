@@ -26,7 +26,6 @@ const Global = createGlobalStyle`
 	a {
 		text-decoration: none;
 		cursor: pointer;
-		color: var(--secondaryText);
 	}
 	ul {
 		  list-style-type: none

@@ -1,17 +1,3 @@
-// export default {
-//   colors: {
-//     background: '#2E3440',
-//     cardBackground: '#272727',
-//     buttonBackground: '#d08770',
-//     linkColor: 'lightblue',
-//     textColor: '#ECEFF4',
-//     buttonColor: '#2E3440',
-//     casesColor: 'lightskyblue',
-//     deathsColor: 'firebrick',
-//     recoveredColor: 'forestgreen',
-//   },
-// };
-
 export default {
   colors: {
     background: '#121212',

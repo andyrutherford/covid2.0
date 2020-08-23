@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Container from './components/UI/Container';
-
 import { default as GlobalStyle } from './styles/GlobalStyle';
-
+import Container from './components/UI/Container';
 import Theme from './styles/Theme';
 import Navbar from './components/Navbar';
 import Overview from './components/pages/Overview';

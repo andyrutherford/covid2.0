@@ -26,10 +26,6 @@ const ResourcesWrapper = styled.div`
     align-items: center;
     margin-bottom: 5px;
   }
-
-  // .header:first-child {
-  //   background-color: ${(props) => props.theme.colors.navy};
-  // }
 `;
 
 const Resources = () => {

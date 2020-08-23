@@ -32,15 +32,15 @@ const TopListWrapper = styled.div`
     padding-left: 6px;
   }
 
-  ${(props) =>
-    props.type &&
-    props.type === 'confirmed' &&
-    css`
-      svg {
-        stroke: ${(props) => props.theme.colors.casesColor};
-        fill: ${(props) => props.theme.colors.casesColor};
-      }
-    `}
+    ${(props) =>
+      props.type &&
+      props.type === 'confirmed' &&
+      css`
+        svg {
+          stroke: ${(props) => props.theme.colors.casesColor};
+          fill: ${(props) => props.theme.colors.casesColor};
+        }
+      `}
     ${(props) =>
       props.type &&
       props.type === 'deaths' &&
@@ -50,39 +50,39 @@ const TopListWrapper = styled.div`
           fill: ${(props) => props.theme.colors.deathsColor};
         }
       `}
-        ${(props) =>
-          props.type &&
-          props.type === 'recovered' &&
-          css`
-            svg {
-              stroke: ${(props) => props.theme.colors.recoveredColor};
-              fill: ${(props) => props.theme.colors.recoveredColor};
-            }
-          `}
-          ${(props) =>
-            props.type &&
-            props.type === 'newCases' &&
-            css`
-              svg {
-                stroke: ${(props) => props.theme.colors.casesColor};
-              }
-            `}
-            ${(props) =>
-              props.type &&
-              props.type === 'newDeaths' &&
-              css`
-                svg {
-                  stroke: ${(props) => props.theme.colors.deathsColor};
-                }
-              `}
-                ${(props) =>
-                  props.type &&
-                  props.type === 'newRecovered' &&
-                  css`
-                    svg {
-                      stroke: ${(props) => props.theme.colors.recoveredColor};
-                    }
-                  `}
+    ${(props) =>
+      props.type &&
+      props.type === 'recovered' &&
+      css`
+        svg {
+          stroke: ${(props) => props.theme.colors.recoveredColor};
+          fill: ${(props) => props.theme.colors.recoveredColor};
+        }
+      `}
+    ${(props) =>
+      props.type &&
+      props.type === 'newCases' &&
+      css`
+        svg {
+          stroke: ${(props) => props.theme.colors.casesColor};
+        }
+      `}
+    ${(props) =>
+      props.type &&
+      props.type === 'newDeaths' &&
+      css`
+        svg {
+          stroke: ${(props) => props.theme.colors.deathsColor};
+        }
+      `}
+    ${(props) =>
+      props.type &&
+      props.type === 'newRecovered' &&
+      css`
+        svg {
+          stroke: ${(props) => props.theme.colors.recoveredColor};
+        }
+      `}
 `;
 
 const TopList = ({ countryList, type, title }) => {
