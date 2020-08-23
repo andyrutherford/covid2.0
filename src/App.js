@@ -8,7 +8,7 @@ import { default as GlobalStyle } from './styles/GlobalStyle';
 import Theme from './styles/Theme';
 import Navbar from './components/Navbar';
 import Overview from './components/pages/Overview';
-import World from './components/pages/World';
+import WorldPage from './components/pages/WorldPage';
 import CountriesPage from './components/pages/CountriesPage';
 import CountryPage from './components/pages/CountryPage';
 import MapPage from './components/pages/MapPage';
@@ -34,7 +34,7 @@ const App = () => {
         <Container>
           <Switch>
             <Route path='/' exact component={Overview} />
-            <Route path='/world' exact component={World} />
+            <Route path='/world' exact component={WorldPage} />
             <Route path='/country' exact component={CountriesPage} />
             <Route path='/country/:country' exact component={CountryPage} />
             <Route path='/map' exact component={MapPage} />

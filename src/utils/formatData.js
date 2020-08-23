@@ -43,6 +43,7 @@ export const formatCountryList = (list) => {
 };
 
 export const formatMostAffectedCountries = (countries, type) => {
+  console.log(countries);
   let arr;
   if (type === 'cases') {
     arr = countries
@@ -65,6 +66,50 @@ export const formatMostAffectedCountries = (countries, type) => {
       }))
       .sort(function (a, b) {
         return a.deaths - b.deaths;
+      });
+  } else if (type === 'recovered') {
+    arr = countries
+      .map((c) => ({
+        country: c.Country,
+        slug: c.Slug,
+        countryCode: c.CountryCode,
+        recovered: c.TotalRecovered,
+      }))
+      .sort(function (a, b) {
+        return a.recovered - b.recovered;
+      });
+  } else if (type === 'newCases') {
+    arr = countries
+      .map((c) => ({
+        country: c.Country,
+        slug: c.Slug,
+        countryCode: c.CountryCode,
+        newCases: c.NewConfirmed,
+      }))
+      .sort(function (a, b) {
+        return a.newCases - b.newCases;
+      });
+  } else if (type === 'newDeaths') {
+    arr = countries
+      .map((c) => ({
+        country: c.Country,
+        slug: c.Slug,
+        countryCode: c.CountryCode,
+        newDeaths: c.NewDeaths,
+      }))
+      .sort(function (a, b) {
+        return a.newDeaths - b.newDeaths;
+      });
+  } else if (type === 'newRecovered') {
+    arr = countries
+      .map((c) => ({
+        country: c.Country,
+        slug: c.Slug,
+        countryCode: c.CountryCode,
+        newRecovered: c.NewRecovered,
+      }))
+      .sort(function (a, b) {
+        return a.newRecovered - b.newRecovered;
       });
   }
   return arr.reverse().slice(0, 8);
