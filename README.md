@@ -47,6 +47,8 @@ COVID19-Tracker uses a number of open source projects to work properly:
 
 ## Demo
 
+https://covid-dashboard2.netlify.app/
+
 ## License
 
 MIT
