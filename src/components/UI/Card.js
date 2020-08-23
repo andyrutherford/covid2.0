@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { space, layout } from 'styled-system';
 
 const Card = styled.div`
   background-color: ${(props) => props.theme.colors.cardBackground};
@@ -11,18 +10,18 @@ const Card = styled.div`
     css`
       border: 1px solid ${props.theme.colors.deathsColor};
     `}
-    ${(props) =>
-      props.type &&
-      props.type === 'recovered' &&
-      css`
-        border: 1px solid ${props.theme.colors.recoveredColor};
-      `}
-      ${(props) =>
-        props.type &&
-        props.type === 'cases' &&
-        css`
-          border: 1px solid ${props.theme.colors.casesColor};
-        `}
+  ${(props) =>
+    props.type &&
+    props.type === 'recovered' &&
+    css`
+      border: 1px solid ${props.theme.colors.recoveredColor};
+    `}
+  ${(props) =>
+    props.type &&
+    props.type === 'cases' &&
+    css`
+      border: 1px solid ${props.theme.colors.casesColor};
+    `}
   padding: 15px 15px;
   border-radius: 10px;
   margin: 10px;
@@ -36,8 +35,6 @@ const Card = styled.div`
   svg {
     stroke: ${(props) => props.theme.colors.textColor};
   }
-  ${space}
-  ${layout}
 `;
 
 export default Card;

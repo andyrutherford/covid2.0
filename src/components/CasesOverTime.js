@@ -1,5 +1,4 @@
 import React from 'react';
-
 import LineChart from '../components/charts/LineChart';
 import Card from '../components/UI/Card';
 

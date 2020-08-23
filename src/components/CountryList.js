@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { Chart } from 'react-google-charts';
-
 import Card from '../components/UI/Card';
 
 const CountryListWrapper = styled.div`
   a {
-    color: #3b5892;
+    color: ${(props) => props.theme.colors.linkColor};
   }
 
   tr {

@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
 import { WorldIcon } from '../UI/Icons';
 import TopList from '../TopList';
-
 import { fetchSummary } from '../../utils/fetch';
 import { formatMostAffectedCountries } from '../../utils/formatData';
 
 const WorldPageWrapper = styled.div`
   .grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
+    display: block;
+  }
+
+  @media (min-width: 800px) {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1200px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 `;
 

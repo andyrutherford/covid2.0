@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
 import Card from '../UI/Card';
 import { MapIcon } from '../UI/Icons';
 import Map from '../Map';

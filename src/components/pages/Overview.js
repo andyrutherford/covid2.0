@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import Total from '../Total';
 import OverviewMap from '../OverviewMap';
 import RecoveredPercentage from '../RecoveredPercentage';
 import DeathPercentage from '../DeathPercentage';
 import Resources from '../Resources';
 import MostDeaths from '../MostDeaths';
-
 import { GlobeIcon } from '../UI/Icons';
 import { fetchSummary } from '../../utils/fetch';
 import {
@@ -173,7 +171,6 @@ const Overview = () => {
             countryList={overviewData.mostCases}
             mapData={overviewData.map}
           />
-
           <MostDeaths
             countryList={overviewData.mostDeaths}
             totalDeaths={overviewData.deaths.totalDeaths}

@@ -80,7 +80,6 @@ const Total = ({ type, total, recent, data: { title, color } }) => {
             New {type[0].toUpperCase() + type.slice(1, type.length)}
           </span>
         </div>
-        {/* <img src={icon} width='50px' alt='icon' /> */}
         <div className='right'>
           {type === 'cases' && <VirusIcon size={50} />}
           {type === 'deaths' && <DeathIcon size={50} />}

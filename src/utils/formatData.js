@@ -43,7 +43,6 @@ export const formatCountryList = (list) => {
 };
 
 export const formatMostAffectedCountries = (countries, type) => {
-  console.log(countries);
   let arr;
   if (type === 'cases') {
     arr = countries

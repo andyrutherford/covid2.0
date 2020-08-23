@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import ReactCountryFlag from 'react-country-flag';
-
 import Total from '../Total';
 import DeathsOverTime from '../DeathsOverTime';
 import CasesOverTime from '../CasesOverTime';
-
 import { fetchSummary, fetchCountrySummary } from '../../utils/fetch';
 import { formatLineChartData } from '../../utils/formatData';
 
@@ -39,17 +37,14 @@ const data = {
   cases: {
     type: 'cases',
     title: 'Total Cases',
-    color: '#3b5892',
   },
   deaths: {
     type: 'deaths',
     title: 'Total Deaths',
-    color: 'darkred',
   },
   recovered: {
     type: 'recovered',
     title: 'Total Recovered',
-    color: 'darkgreen',
   },
 };
 

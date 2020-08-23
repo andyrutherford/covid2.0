@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
 import CountryList from '../CountryList';
-
 import { FlagIcon } from '../UI/Icons';
-
 import { fetchSummary } from '../../utils/fetch';
 import { formatTable } from '../../utils/formatData';
 
@@ -15,7 +12,7 @@ const CountriesPageWrapper = styled.div`
   }
 
   input {
-    width: 100%;
+    width: 97%;
     height: 40px;
     border: 1px solid darkgrey;
     border-radius: 8px;
@@ -23,12 +20,12 @@ const CountriesPageWrapper = styled.div`
     font-size: 16px;
     background: ${(props) => props.theme.colors.cardBackground};
     color: ${(props) => props.theme.colors.textColor};
+    margin-left: 10px;
   }
 
   @media (min-width: 1000px) {
     input {
       width: 300px;
-      height: 30px;
     }
     .header {
       display: flex;
