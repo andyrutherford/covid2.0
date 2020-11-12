@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const Card = styled.div`
+interface CardProps {
+  type?: string;
+}
+
+const Card = styled.div<CardProps>`
   background-color: ${(props) => props.theme.colors.cardBackground};
   color: ${(props) => props.theme.colors.textColor};
 

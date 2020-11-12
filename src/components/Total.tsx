@@ -2,14 +2,13 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import Card from './UI/Card';
-import {
-  PlusIcon,
-  DeathIcon,
-  VirusIcon,
-  HeartIcon,
-} from '../components/UI/Icons';
+import { PlusIcon, DeathIcon, VirusIcon, HeartIcon } from './UI/Icons';
 
-const TotalWrapper = styled.div`
+type WrapperProps = {
+  type?: string;
+};
+
+const TotalWrapper = styled.div<WrapperProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -67,7 +66,23 @@ const TotalWrapper = styled.div`
     align-items: center;
   }
 `;
-const Total = ({ type, total, recent, data: { title, color } }) => {
+
+interface Props {
+  type: string;
+  total: number;
+  recent: number;
+  data: {
+    title: string;
+    color: string;
+  };
+}
+
+const Total: React.FunctionComponent<Props> = ({
+  type,
+  total,
+  recent,
+  data: { title, color },
+}) => {
   return (
     <Card type={type}>
       <TotalWrapper type={type} color={color}>

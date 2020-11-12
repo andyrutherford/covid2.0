@@ -3,17 +3,14 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import ReactCountryFlag from 'react-country-flag';
 
-import Card from '../components/UI/Card';
-import {
-  PlusIcon,
-  DeathIcon,
-  VirusIcon,
-  HeartIcon,
-} from '../components/UI/Icons';
+import Card from './UI/Card';
+import { PlusIcon, DeathIcon, VirusIcon, HeartIcon } from './UI/Icons';
 
-const TopListWrapper = styled.div`
+interface WrapperProps {
+  type?: string;
+}
 
-
+const TopListWrapper = styled.div<WrapperProps>`
   li {
     border-top: 0.5px solid lightgrey;
     padding: 10px;
@@ -23,7 +20,7 @@ const TopListWrapper = styled.div`
   }
 
   li:first-child {
-      border: none;
+    border: none;
   }
 
   .list-header {
@@ -32,60 +29,70 @@ const TopListWrapper = styled.div`
     padding-left: 6px;
   }
 
+  ${(props) =>
+    props.type &&
+    props.type === 'confirmed' &&
+    css`
+      svg {
+        stroke: ${(props) => props.theme.colors.casesColor};
+        fill: ${(props) => props.theme.colors.casesColor};
+      }
+    `}
+  ${(props) =>
+    props.type &&
+    props.type === 'deaths' &&
+    css`
+      svg {
+        stroke: ${(props) => props.theme.colors.deathsColor};
+        fill: ${(props) => props.theme.colors.deathsColor};
+      }
+    `}
     ${(props) =>
-      props.type &&
-      props.type === 'confirmed' &&
-      css`
-        svg {
-          stroke: ${(props) => props.theme.colors.casesColor};
-          fill: ${(props) => props.theme.colors.casesColor};
-        }
-      `}
+    props.type &&
+    props.type === 'recovered' &&
+    css`
+      svg {
+        stroke: ${(props) => props.theme.colors.recoveredColor};
+        fill: ${(props) => props.theme.colors.recoveredColor};
+      }
+    `}
     ${(props) =>
-      props.type &&
-      props.type === 'deaths' &&
-      css`
-        svg {
-          stroke: ${(props) => props.theme.colors.deathsColor};
-          fill: ${(props) => props.theme.colors.deathsColor};
-        }
-      `}
+    props.type &&
+    props.type === 'newCases' &&
+    css`
+      svg {
+        stroke: ${(props) => props.theme.colors.casesColor};
+      }
+    `}
     ${(props) =>
-      props.type &&
-      props.type === 'recovered' &&
-      css`
-        svg {
-          stroke: ${(props) => props.theme.colors.recoveredColor};
-          fill: ${(props) => props.theme.colors.recoveredColor};
-        }
-      `}
+    props.type &&
+    props.type === 'newDeaths' &&
+    css`
+      svg {
+        stroke: ${(props) => props.theme.colors.deathsColor};
+      }
+    `}
     ${(props) =>
-      props.type &&
-      props.type === 'newCases' &&
-      css`
-        svg {
-          stroke: ${(props) => props.theme.colors.casesColor};
-        }
-      `}
-    ${(props) =>
-      props.type &&
-      props.type === 'newDeaths' &&
-      css`
-        svg {
-          stroke: ${(props) => props.theme.colors.deathsColor};
-        }
-      `}
-    ${(props) =>
-      props.type &&
-      props.type === 'newRecovered' &&
-      css`
-        svg {
-          stroke: ${(props) => props.theme.colors.recoveredColor};
-        }
-      `}
+    props.type &&
+    props.type === 'newRecovered' &&
+    css`
+      svg {
+        stroke: ${(props) => props.theme.colors.recoveredColor};
+      }
+    `}
 `;
 
-const TopList = ({ countryList, type, title }) => {
+interface Props {
+  countryList: any;
+  type: any;
+  title: any;
+}
+
+const TopList: React.FunctionComponent<Props> = ({
+  countryList,
+  type,
+  title,
+}) => {
   return (
     <Card>
       <TopListWrapper type={type}>
@@ -100,7 +107,7 @@ const TopList = ({ countryList, type, title }) => {
         </div>
         <div className='list'>
           <ul>
-            {countryList.map((c, i) => {
+            {countryList.map((c: any, i: number) => {
               return (
                 <li key={i}>
                   <span style={{ display: 'flex', alignItems: 'center' }}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Card from '../components/UI/Card';
+import Card from './UI/Card';
 
 import { BookmarkIcon, RightArrowIcon } from './UI/Icons';
 import { resources } from '../utils/resources';
@@ -30,7 +30,7 @@ const ResourcesWrapper = styled.div`
 
 const Resources = () => {
   return (
-    <Card border='none'>
+    <Card>
       <ResourcesWrapper>
         <div className='header'>
           <BookmarkIcon size={40} />
