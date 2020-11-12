@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import ReactCountryFlag from 'react-country-flag';
-import Card from '../components/UI/Card';
-import { BarChartIcon } from '../components/UI/Icons';
-import SankeyChart from '../components/charts/SankeyChart';
+import Card from './UI/Card';
+import { BarChartIcon } from './UI/Icons';
+import SankeyChart from './charts/SankeyChart';
 
 const MostDeathsWrapper = styled.div`
   display: block;
@@ -65,9 +65,24 @@ const MostDeathsWrapper = styled.div`
   }
 `;
 
-const MostDeaths = ({ countryList, totalDeaths }) => {
+type country = {
+  country: string;
+  countryCode: string;
+  deaths: number;
+  slug: string;
+};
+
+interface Props {
+  countryList: country[];
+  totalDeaths: any;
+}
+
+const MostDeaths: React.FunctionComponent<Props> = ({
+  countryList,
+  totalDeaths,
+}) => {
   const countryListDeathTotal = countryList.reduce(
-    (acc, curr) => acc + curr.deaths,
+    (acc: number, curr: { deaths: number }) => acc + curr.deaths,
     0
   );
   let chartData = countryList.map((c) => ['World', c.country, c.deaths]);

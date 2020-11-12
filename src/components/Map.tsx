@@ -2,7 +2,12 @@ import React, { useContext } from 'react';
 import { Chart } from 'react-google-charts';
 import { ThemeContext } from 'styled-components';
 
-const Map = ({ mapData, source }) => {
+interface Props {
+  mapData: any[];
+  source: string;
+}
+
+const Map: React.FunctionComponent<Props> = ({ mapData, source }) => {
   const themeContext = useContext(ThemeContext);
   const {
     cardBackground,

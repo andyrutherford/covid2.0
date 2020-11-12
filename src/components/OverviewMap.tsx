@@ -53,9 +53,16 @@ const OverviewMapWrapper = styled.div`
   }
 `;
 
+type country = {
+  countryCode: string;
+  slug: string;
+  confirmed: number;
+  country: string;
+};
+
 interface Props {
-  countryList: any;
-  mapData: any;
+  countryList: country[];
+  mapData: any[];
 }
 
 const OverviewMap: React.FunctionComponent<Props> = ({
@@ -72,37 +79,27 @@ const OverviewMap: React.FunctionComponent<Props> = ({
             <h2>Most Cases</h2>
           </div>
           <ul>
-            {countryList.map(
-              (
-                c: {
-                  countryCode: string;
-                  slug: string;
-                  confirmed: number;
-                  country: string;
-                },
-                i: number
-              ) => {
-                return (
-                  <li key={i}>
-                    <span style={{ display: 'flex', alignItems: 'center' }}>
-                      <ReactCountryFlag
-                        countryCode={c.countryCode}
-                        svg
-                        style={{
-                          fontSize: '1.5em',
-                          lineHeight: '1.5em',
-                          marginRight: '0.5em',
-                          objectFit: 'cover',
-                          borderRadius: '100px',
-                        }}
-                      />
-                      <Link to={`/country/${c.slug}`}>{c.country}</Link>
-                    </span>
-                    <span>{c.confirmed.toLocaleString()}</span>
-                  </li>
-                );
-              }
-            )}
+            {countryList.map((c, i) => {
+              return (
+                <li key={i}>
+                  <span style={{ display: 'flex', alignItems: 'center' }}>
+                    <ReactCountryFlag
+                      countryCode={c.countryCode}
+                      svg
+                      style={{
+                        fontSize: '1.5em',
+                        lineHeight: '1.5em',
+                        marginRight: '0.5em',
+                        objectFit: 'cover',
+                        borderRadius: '100px',
+                      }}
+                    />
+                    <Link to={`/country/${c.slug}`}>{c.country}</Link>
+                  </span>
+                  <span>{c.confirmed.toLocaleString()}</span>
+                </li>
+              );
+            })}
           </ul>
           <Link to='/country'>See more</Link>
         </div>
