@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Card from '../components/UI/Card';
-import PieChart from '../components/charts/PieChart';
+import Card from './UI/Card';
+import PieChart from './charts/PieChart';
 
-import { PercentIcon } from '../components/UI/Icons';
+import { PercentIcon } from './UI/Icons';
 
-const RecoveredPercentageWrapper = styled.div`
+interface WrapperProps {
+  type?: string;
+}
+
+const RecoveredPercentageWrapper = styled.div<WrapperProps>`
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -50,7 +54,14 @@ const RecoveredPercentageWrapper = styled.div`
   }
 `;
 
-const RecoveredPercentage = ({ data }) => {
+interface Props {
+  data: {
+    totalRecovered: number;
+    totalCases: number;
+  };
+}
+
+const RecoveredPercentage: React.FunctionComponent<Props> = ({ data }) => {
   const chartData = [
     ['', ''],
     ['Recovered', data.totalRecovered],

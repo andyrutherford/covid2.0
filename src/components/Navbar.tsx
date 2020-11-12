@@ -217,10 +217,18 @@ const NavbarWrapper = styled.nav`
   }
 `;
 
-const Navbar = ({ themeHandler, isDarkMode }) => {
+interface Props {
+  themeHandler(): any;
+  isDarkMode: boolean;
+}
+
+const Navbar: React.FunctionComponent<Props> = ({
+  themeHandler,
+  isDarkMode,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleStateChange = (state) => {
+  const handleStateChange = (state: { isOpen: boolean }) => {
     setIsOpen(state.isOpen);
   };
 

@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 interface CardProps {
   type?: string;
+  border?: string;
+  bg?: string;
 }
 
 const Card = styled.div<CardProps>`
