@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Card from '../components/UI/Card';
-import PieChart from '../components/charts/PieChart';
+import Card from './UI/Card';
+import PieChart from './charts/PieChart';
 
-import { PercentIcon } from '../components/UI/Icons';
+import { PercentIcon } from './UI/Icons';
 
 const DeathPercentageWrapper = styled.div`
   height: 300px;
@@ -51,7 +51,14 @@ const DeathPercentageWrapper = styled.div`
   }
 `;
 
-const DeathPercentage = ({ data }) => {
+interface Props {
+  data: {
+    totalDeaths: number;
+    totalCases: number;
+  };
+}
+
+const DeathPercentage: React.FunctionComponent<Props> = ({ data }) => {
   const chartData = [
     ['', ''],
     ['Deaths', data.totalDeaths],

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Chart } from 'react-google-charts';
-import Card from '../components/UI/Card';
+import Card from './UI/Card';
 
 const CountryListWrapper = styled.div`
   a {
@@ -23,9 +23,13 @@ const CountryListWrapper = styled.div`
   }
 `;
 
-const CountryList = ({ list }) => {
+interface Props {
+  list: [];
+}
+
+const CountryList: React.FunctionComponent<Props> = ({ list }) => {
   return (
-    <Card m={0} mt={'10px'} border='none'>
+    <Card m={'0'} mt={'10px'} border='none'>
       <CountryListWrapper>
         <Chart
           width={'100%'}

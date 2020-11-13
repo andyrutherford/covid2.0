@@ -4,6 +4,8 @@ interface CardProps {
   type?: string;
   border?: string;
   bg?: string;
+  m?: string;
+  mt?: string;
 }
 
 const Card = styled.div<CardProps>`

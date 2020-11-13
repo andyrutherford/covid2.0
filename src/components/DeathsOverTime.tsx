@@ -1,8 +1,12 @@
 import React from 'react';
-import LineChart from '../components/charts/LineChart';
-import Card from '../components/UI/Card';
+import LineChart from './charts/LineChart';
+import Card from './UI/Card';
 
-const DeathsOverTime = ({ data }) => {
+interface Props {
+  data: any[];
+}
+
+const DeathsOverTime: React.FunctionComponent<Props> = ({ data }) => {
   const chartData = [['x', 'Deaths'], ...data];
   return (
     <Card border='none'>
