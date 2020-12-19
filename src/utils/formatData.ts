@@ -1,4 +1,13 @@
-export const formatCountryList = (list) => {
+import {
+  CountryInfoList,
+  InfoTypes,
+  LineChartDataList,
+  MapDataList,
+  MostAffectedCountryList,
+  TableDataList,
+} from '../types';
+
+export const formatCountryList = (list: CountryInfoList) => {
   const arr = list.map((c) => {
     switch (c.Country) {
       case 'Brunei Darussalam':
@@ -39,11 +48,14 @@ export const formatCountryList = (list) => {
         return c;
     }
   });
-  return arr;
+  return arr as CountryInfoList;
 };
 
-export const formatMostAffectedCountries = (countries, type) => {
-  let arr;
+export const formatMostAffectedCountries = (
+  countries: CountryInfoList,
+  type: InfoTypes
+) => {
+  let arr: MostAffectedCountryList = [];
   if (type === 'cases') {
     arr = countries
       .map((c) => ({
@@ -111,10 +123,10 @@ export const formatMostAffectedCountries = (countries, type) => {
         return a.newRecovered - b.newRecovered;
       });
   }
-  return arr.reverse().slice(0, 8);
+  return arr.reverse().slice(0, 8) as MostAffectedCountryList;
 };
 
-export const formatMapData = (list, type) => {
+export const formatMapData = (list: CountryInfoList, type: InfoTypes) => {
   let arr;
   arr = list.map((c) => [c.Country, c.TotalConfirmed]);
   arr.unshift(['Country', 'Confirmed Cases']);
@@ -128,11 +140,10 @@ export const formatMapData = (list, type) => {
     arr = list.map((c) => [c.Country, c.TotalRecovered]);
     arr.unshift(['Country', 'Total Recovered']);
   }
-
-  return arr;
+  return arr as MapDataList;
 };
 
-export const formatTable = (list) => {
+export const formatTable = (list: CountryInfoList) => {
   return list.map((i) => [
     `<a href="/country/${i.Slug}">${i.Country}</a>`,
     i.TotalConfirmed,
@@ -141,12 +152,12 @@ export const formatTable = (list) => {
     i.NewConfirmed,
     i.NewDeaths,
     i.NewRecovered,
-  ]);
+  ]) as TableDataList;
 };
 
-export const formatLineChartData = (list, type) => {
+export const formatLineChartData = (list: LineChartDataList) => {
   return list.data.map((i) => {
     const date = i.Date.split('-').slice(1, 3).join('-').split('T')[0];
-    return [date, i.Cases];
+    return [date, i.Cases] as [string, number];
   });
 };

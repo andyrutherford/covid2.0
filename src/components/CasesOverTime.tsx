@@ -3,7 +3,7 @@ import LineChart from './charts/LineChart';
 import Card from './UI/Card';
 
 interface Props {
-  data: [string, boolean, string][];
+  data: [];
 }
 
 const CasesOverTime: React.FunctionComponent<Props> = ({ data }) => {
