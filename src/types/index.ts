@@ -1,3 +1,23 @@
+export type FetchCountryInfo = {
+  confirmed: {
+    newConfirmed: number;
+    totalConfirmed: number;
+  };
+  deaths: {
+    newDeaths: number;
+    totalDeaths: number;
+    percentDeaths: number;
+    totalCases: number;
+  };
+  recovered: {
+    newRecovered: number;
+    totalRecovered: number;
+    percentRecovered: number;
+    totalCases: number;
+  };
+  countries: CountryInfo[];
+};
+
 export type CountryInfo = {
   Country: string;
   CountryCode: string;
@@ -10,6 +30,47 @@ export type CountryInfo = {
   TotalConfirmed: number;
   TotalDeaths: number;
   TotalRecovered: number;
+};
+
+export type FetchCountrySummary = {
+  cases: {
+    config?: any;
+    headers?: any;
+    request?: any;
+    status?: any;
+    statusText?: any;
+    data: {
+      Cases: number;
+      City: string;
+      CityCode: string;
+      Country: string;
+      CountryCode: string;
+      Date: string;
+      Lat: string;
+      Lon: string;
+      Province: string;
+      Status: string;
+    };
+  };
+  deaths: {
+    config?: any;
+    headers?: any;
+    request?: any;
+    status?: any;
+    statusText?: any;
+    data: {
+      Cases: number;
+      City: string;
+      CityCode: string;
+      Country: string;
+      CountryCode: string;
+      Date: string;
+      Lat: string;
+      Lon: string;
+      Province: string;
+      Status: string;
+    };
+  };
 };
 
 export type CountryInfoList = CountryInfo[];

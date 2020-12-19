@@ -2,15 +2,16 @@ import axios from 'axios';
 
 import { formatCountryList } from './formatData';
 import { data } from './data';
+import { FetchCountryInfo, FetchCountrySummary } from '../types';
 
 const url = {
   summary: 'https://api.covid19api.com/summary',
   countrySummary: 'https://api.covid19api.com/total/country/',
 };
 
-const testData = true;
+const testData = false;
 
-export const fetchSummary = async () => {
+export const fetchSummary = async (): Promise<FetchCountryInfo> => {
   if (testData) {
     return {
       confirmed: {
@@ -40,6 +41,7 @@ export const fetchSummary = async () => {
   }
   try {
     const res = await axios.get(url.summary);
+
     return {
       confirmed: {
         totalConfirmed: res.data.Global.TotalConfirmed,
@@ -67,10 +69,13 @@ export const fetchSummary = async () => {
     };
   } catch (error) {
     console.log(error.message);
+    throw new Error();
   }
 };
 
-export const fetchCountrySummary = async (country) => {
+export const fetchCountrySummary = async (
+  country: string
+): Promise<FetchCountrySummary> => {
   try {
     const cases = await axios.get(
       `${url.countrySummary}${country}/status/confirmed`
@@ -80,9 +85,9 @@ export const fetchCountrySummary = async (country) => {
     );
 
     const res = { cases, deaths };
-
     return res;
   } catch (error) {
     console.log(error.message);
+    throw new Error();
   }
 };
